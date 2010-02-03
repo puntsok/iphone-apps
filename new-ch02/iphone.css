@@ -1,0 +1,70 @@
+body {
+	background: #ddd;
+	color: #222;
+	font: 14px Helvetica, sans-serif;
+	margin: 0;
+}
+#header h1 {
+	margin: 0;
+}
+#header h1 a {
+/*	background-image: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#999));*/
+/*	background-image: -moz-linear-gradient(top, #ccc, #999);*/
+	background-image: url(images/gray-gradient.png);
+    border-bottom: 1px solid #666;
+    color: #222;
+    display: block;
+	font: bold 20px Helvetica;
+    padding: 10px 0;
+    text-align: center;
+    text-decoration: none;
+	text-shadow: 0px 1px 0px #fff;
+	height: 23px;
+/*	ie6 needs below overflow hidden, other text may push out height of h1 container*/
+	overflow: hidden;
+}
+#header ul {
+    list-style: none;
+    margin: 10px;
+    padding: 0;
+}
+#header ul li {
+/*	background-color: red;*/
+	display: block;
+	overflow: hidden; /*ie6?*/
+/*	margin: 0;*/
+/*	padding: 0;*/
+/*	height: 45px;*/
+}
+#header ul li a {
+    background-color: #FFFFFF;
+    border: 1px solid #999999;
+	border-top-width: 0;
+    color: #222222;
+    display: block;
+    font-size: 17px;
+    font-weight: bold;
+/*    margin-bottom: -1px; book wanted to put this in*/
+    padding: 12px 10px;
+    text-decoration: none;
+}
+#header ul li a.first-child {
+/*	ie6 need to get border on, so add class manually:*/
+	border-top-width: 1px;
+}
+#header ul li:first-child a {
+    -webkit-border-top-left-radius: 8px;
+    -webkit-border-top-right-radius: 8px;
+	-moz-border-radius: 8px 8px 0 0;
+}
+#header ul li:last-child  a {
+    -webkit-border-bottom-left-radius: 8px;
+    -webkit-border-bottom-right-radius: 8px;
+	-moz-border-radius: 0 0 8px 8px;
+}
+#content, #sidebar {
+    padding: 10px;
+}
+#footer {
+	display: none;
+}
