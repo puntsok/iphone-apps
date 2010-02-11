@@ -1,6 +1,6 @@
 $.jQTouch({
     icon: 'kilo.png',
-    statusbar: 'black',
+    statusbar: 'black-translucent',
 	useAnimations: true	
 });
 
@@ -14,30 +14,46 @@ function pcls(value) {
 // function depending on the hook I put in jQTouch
 function beforeGoTo( node ) {
 	if ( node.hash === '#nutrid' ) {
-		nf( node.className, node );
+		nf( node.name, node );
 	}
 }
 
 var p2;
 function nf(idx, target) {
-	
-			
 			
 		var cstr = nftextnew;
 		
 		
 		// coughing on the below, why?
 		
-				alert( 'after0');
-				
-		// here!!!!
-		debugger;		
-		var c00=aData[idx][0];
-		 
-
-
-
+		// var item_info = aData[idx];
+		// var c00='aData[idx][0]';
+		// var c01='aData[idx][1]'; 
+		// var c02='aData[idx][2]'; 
+		// var c03='aData[idx][3]'; 
+		// var c04='aData[idx][4]'; 
+		// var c05='aData[idx][5]'; 
+		// var c06='aData[idx][6]'; 
+		// var c07='aData[idx][7]'; 
+		// var c08='aData[idx][8]'; 
+		// var c09='aData[idx][9]'; 
+		// var c10='aData[idx][10]'; 
+		// var c11='aData[idx][11]'; 
+		// var c12='aData[idx][12]'; 
+		// var c13='aData[idx][13]'; 
+		// var c14='aData[idx][14]'; 
+		// var c15='aData[idx][15]'; 
+		// var c16='aData[idx][16]'; 
+		// var c17='aData[idx][17]'; 
+		// var c18='aData[idx][18]'; 
+		// var c19='aData[idx][19]'; 
+		// var c20='aData[idx][20]'; 
+		// var c21='aData[idx][21]';
+		// var c22='aData[idx][22]';
+		// var c23='aData[idx][23]'; 
+		// var c24='aData[idx][24]';
 		
+		var c00=aData[idx][0];
 		var c01=aData[idx][1]; 
 		var c02=aData[idx][2]; 
 		var c03=aData[idx][3]; 
@@ -63,9 +79,6 @@ function nf(idx, target) {
 		var c23=aData[idx][23]; 
 		var c24=aData[idx][24];
 		
-		
-		
-
 		cstr=cstr.replace(/~servsize~/, c00);
 		cstr=cstr.replace(/~c~/,        c01);
 		cstr=cstr.replace(/~cf~/,       c02);
@@ -91,16 +104,6 @@ function nf(idx, target) {
 		cstr=cstr.replace(/~rname~/,    c22);
 		cstr=cstr.replace(/~rdesc~/,    c23);
 		cstr=cstr.replace(/~allergen~/, c24);
-		
-		// alert('hey');
-		
-		// $( cstr ).insertAfter( $(target) );
-		
-		// console.log( cstr );
-		
-		// $( '#nutrid' ).replaceWith( $( cstr ) );
-		
-
 		
 		$( '#nutrid' ).html( cstr );
 
