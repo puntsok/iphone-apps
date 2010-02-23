@@ -1,0 +1,2193 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- ©COPYRIGHT 2009 VISUAL GRAPHIC SYSTEMS, INC. UNDER EXCLUSIVE LICENSE FROM PRODUCTIVE SOLUTIONS, LLC. ALL RIGHTS RESERVED. -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Expires" content="Sun, 06 Nov 1994 08:49:37 GMT">
+<meta name="Author" lang="en" content="David A. Greene Los Angeles, California, USA, 1.310.479.8190, Tech Support">
+<meta name="Publisher" lang="en" content="Sodexo Menu Graphics, from VGS 1.800.203.0301, Sales & Ordering">
+<meta name="description" lang="en" content="Weekly Menu Web Page produced by Sodexo Menu Graphics, available from Visual Graphic Systems, Inc. 1-800-203-0301">
+<meta name="keywords" lang="en" content="food,service,management,meal,catering,Sodexo,SMG,VGS,menu,weekly,breakfast,lunch,dinner,serving,station">
+<meta name="keywords" lang="fr" content="nourriture,service,gestion,repas,restauration,Sodexo,SMG,VGS,menu,hebdomadaire,petit déjeuner,déjeuner,dîner,portion,station">
+
+<script language="JavaScript" type="text/javascript">
+<!-- Hide
+var aData, nftext, p1, p2, oldcolor='none', browserType;
+// variable to control Hours of Operation 
+var nHrsType=2; 
+// variables to control display of meals checkboxes
+var nbr=0; 
+var nlu=1; 
+var ndi=1; 
+var nla=0;
+// variable to control if there is only one, unchecked, meal so it can appear  
+var nonlyone=0;
+// determine type of browser
+browserType="";
+var ie=false, ff=false, ch=false, sa=false, nn=false;
+if (browserType.length==0 && window.navigator.userAgent.toLowerCase().match("chrome"))  {browserType= "chrome"; ch=true;}
+if (browserType.length==0 && window.navigator.userAgent.toLowerCase().match("firefox")) {browserType= "firefox"; ff=true;}
+if (browserType.length==0 && window.navigator.userAgent.toLowerCase().match("safari"))  {browserType= "safari"; sa=true;}  
+if (browserType.length==0 && window.navigator.userAgent.toLowerCase().match("msie 6"))  {browserType= "ie6"; ie=true;} 
+if (browserType.length==0 && window.navigator.userAgent.toLowerCase().match("msie 7"))  {browserType= "ie7"; ie=true;}
+if (browserType.length==0 && window.navigator.userAgent.toLowerCase().match("msie 8"))  {browserType= "ie8"; ie=true;}
+if (browserType.length==0 && window.navigator.userAgent.toLowerCase().match("gecko"))   {browserType= "gecko"; }
+if (browserType.length==0 && document.layers) {browserType = "netscape"; nn=true;} 
+//alert(browserType);
+
+function nf(idx) {
+   if(!ie && !ff && !ch && !sa){alert('Your browser cannot display the Nutrition Facts window.'); return false;}
+   var cstr = new String(nftext);
+   var c00=aData[idx][00]; 
+   var c01=aData[idx][01]; 
+   var c02=aData[idx][02]; 
+   var c03=aData[idx][03]; 
+   var c04=aData[idx][04]; 
+   var c05=aData[idx][05]; 
+   var c06=aData[idx][06]; 
+   var c07=aData[idx][07]; 
+   var c08=aData[idx][08]; 
+   var c09=aData[idx][09]; 
+   var c10=aData[idx][10]; 
+   var c11=aData[idx][11]; 
+   var c12=aData[idx][12]; 
+   var c13=aData[idx][13]; 
+   var c14=aData[idx][14]; 
+   var c15=aData[idx][15]; 
+   var c16=aData[idx][16]; 
+   var c17=aData[idx][17]; 
+   var c18=aData[idx][18]; 
+   var c19=aData[idx][19]; 
+   var c20=aData[idx][20]; 
+   var c21=aData[idx][21];
+   var c22=aData[idx][22];
+   var c23=aData[idx][23]; 
+   var c24=aData[idx][24];
+   cstr=cstr.replace(/~servsize~/, c00);
+   cstr=cstr.replace(/~c~/,        c01);
+   cstr=cstr.replace(/~cf~/,       c02);
+   cstr=cstr.replace(/~fat~/,      c03);
+   cstr=cstr.replace(/~fatp~/,     c04);
+   cstr=cstr.replace(/~sfat~/,     c05);
+   cstr=cstr.replace(/~sfatp~/,    c06);
+   cstr=cstr.replace(/~tfat~/,     c07);
+   cstr=cstr.replace(/~chl~/,      c08);
+   cstr=cstr.replace(/~chp~/,      c09);
+   cstr=cstr.replace(/~sod~/,      c10);
+   cstr=cstr.replace(/~sodp~/,     c11);
+   cstr=cstr.replace(/~b~/,        c12);
+   cstr=cstr.replace(/~bp~/,       c13);
+   cstr=cstr.replace(/~df~/,       c14);
+   cstr=cstr.replace(/~dfp~/,      c15);
+   cstr=cstr.replace(/~sug~/,      c16);
+   cstr=cstr.replace(/~pro~/,      c17);
+   cstr=cstr.replace(/~a~/,        c18);
+   cstr=cstr.replace(/~cp~/,       c19);
+   cstr=cstr.replace(/~up~/,       c20);
+   cstr=cstr.replace(/~ip~/,       c21);
+   cstr=cstr.replace(/~rname~/,    c22);
+   cstr=cstr.replace(/~rdesc~/,    c23);
+   cstr=cstr.replace(/~allergen~/, c24);
+   
+   if(ie){
+      var nTop=document.body.parentElement.scrollTop+5;
+      var nLeft=12;
+      var basew=225;
+      var basey=410;
+      var w=parseInt((window.screen.deviceXDPI/window.screen.logicalXDPI)*basew);
+      var h=parseInt((window.screen.deviceYDPI/window.screen.logicalYDPI)*basey);
+      if(w!=basew)w=w+4;
+      if(h!=basey)h=h-2;
+      p1 = window.createPopup();
+      var objDocument = p1.document;
+      objDocument.open();
+      objDocument.write(cstr);
+      objDocument.close();
+      p1.show(nLeft,nTop,w,h,document.body);
+   } 
+   else {
+      var nTop=window.screenY; 
+      var nLeft=window.screenX;
+      var attrib='height=410,width=220,directory=0,left='+nLeft+',top='+nTop+',location=0,'+
+                    'menubar=0,resizable=0,scrollbars=0,titlebar=0,toolbar=0';
+      if(p2 && !p2.closed){p2.close(); p2=null;}
+      p2=window.open('','',attrib,true); 
+      p2.document.write(cstr);   
+   }
+   return false;
+}
+
+function pcls(obj){
+   if(oldcolor!='none'){obj.style.color=oldcolor;}
+   if(p1 && p1.isOpen){p1.hide(); p1=null;}
+   if(p2 && !p2.closed){p2.close(); p2=null;}
+   window.status='';
+   obj.blur();
+   return true;
+}
+
+function ws(obj) {
+   window.status='Click to view nutrient facts'; 
+   if(oldcolor=='none'){oldcolor=obj.style.color;}
+   obj.style.color = 'red';
+   return true; 
+}
+
+function price_toggle() {
+   //InActive
+   var curstyle='TD.PRICE';
+   var sht=document.styleSheets[0];
+   var orules=((ie) ? sht.rules : sht.cssRules);
+   var rule_on=((ie) ? 'inline-block' : '');
+   var rule_off='none';   
+   for (var i=0;i<orules.length;i++) {
+      if(orules[i].selectorText.toUpperCase()==curstyle) {
+         orules[i].style.display=((orules[i].style.display.toLowerCase()==rule_off) ? rule_on : rule_off); break;
+      }
+   }
+   return true;
+}   
+
+function showToggle(mealstr) {
+   var curstyle='TR.'+mealstr.toUpperCase();
+   var sht=document.styleSheets[0];
+   var orules=((ie) ? sht.rules : sht.cssRules);
+   var rule_on=((ie) ? 'inline-block' : '');
+   var rule_off='none';   
+   for (var i=0;i<orules.length;i++) {
+      if(orules[i].selectorText.toUpperCase()==curstyle){
+         orules[i].style.display=((orules[i].style.display.toLowerCase()==rule_off) ? rule_on : rule_off); break;
+      }
+   }
+   return true;
+}
+   
+function objInit() {
+   if(!ie && !ff && !ch && !sa){alert('Your browser cannot properly display the elements on this page. Use IE, FireFox, Chrome, or Safari.'); return true;}
+   var cOn =((nHrsType==1) ? "DayHrs" : "AllHrs");
+   var cOff=((nHrsType==1) ? "AllHrs" : "DayHrs");
+   var curstyle1='TABLE.'+cOn.toUpperCase();
+   var curstyle2='TABLE.'+cOff.toUpperCase();
+   var chkbr='TD.CHKBR';
+   var chklu='TD.CHKLU';
+   var chkdi='TD.CHKDI';
+   var chkla='TD.CHKLA';
+   var sht=document.styleSheets[0];
+
+   var orules=((ie) ? sht.rules : sht.cssRules);
+   var rule_on=((ie) ? 'inline-block' : '');
+   var rule_off='none', rule_brk, rule_lun, rule_din, rule_lat;
+   for (var i=0;i<orules.length;i++) {
+      if(orules[i].selectorText.toUpperCase()==curstyle1){ orules[i].style.display=rule_on; }
+      if(orules[i].selectorText.toUpperCase()==curstyle2){ orules[i].style.display=rule_off; }
+      if(orules[i].selectorText.toUpperCase()==chkbr && nbr==0 && nonlyone==0){ orules[i].style.display=rule_off; }
+      if(orules[i].selectorText.toUpperCase()==chklu && nlu==0 && nonlyone==0){ orules[i].style.display=rule_off; }
+      if(orules[i].selectorText.toUpperCase()==chkdi && ndi==0 && nonlyone==0){ orules[i].style.display=rule_off; }
+      if(orules[i].selectorText.toUpperCase()==chkla && nla==0 && nonlyone==0){ orules[i].style.display=rule_off; }
+	   if(orules[i].selectorText.toUpperCase()=='TR.BRK'){rule_brk=orules[i].style.display; orules[i].style.display=rule_off; orules[i].style.display=rule_brk;}
+	   if(orules[i].selectorText.toUpperCase()=='TR.LUN'){rule_lun=orules[i].style.display; orules[i].style.display=rule_off; orules[i].style.display=rule_lun;}
+	   if(orules[i].selectorText.toUpperCase()=='TR.DIN'){rule_din=orules[i].style.display; orules[i].style.display=rule_off; orules[i].style.display=rule_din;}
+	   if(orules[i].selectorText.toUpperCase()=='TR.LAT'){rule_lat=orules[i].style.display; orules[i].style.display=rule_off; orules[i].style.display=rule_lat;}
+      if(!ie && !ff && orules[i].style.display=='inline-block'){orules[i].style.display='';}
+   }
+   return true
+}  
+
+function showYear() { 
+   var Today=new Date(); 
+   return " "+Today.getFullYear()+" "; 
+}
+ 
+ // -->
+</script> 
+
+<title>Willard Café</title>
+
+<style type="text/css" id="oStyle">
+
+/* Begin Defaults */
+html,body,td,a {
+   font-family: Tahoma, Arial Helvetica, sans-serif;
+   font-size: 10pt;
+   color: #404040;
+   }
+html,body {
+   margin: 2px 2px 2px 2px;
+   background-color:#fcfcfc;
+   }
+body {
+   text-align: center;
+   }
+table {
+   margin: 0px 0px 0px 0px;
+   padding: 0px 0px 0px 0px;
+   border-collapse: collapse;
+   text-align: left;  
+   vertical-align: top; 
+   }
+tr {
+   vertical-align: top;
+   }
+td {
+   padding: 0px;
+   margin: 0px;
+   vertical-align: top;
+   text-align: left;
+   }   
+a  {
+   text-decoration: none;
+   }
+a:visited {
+   color: #404040;
+   text-decoration: underline;
+   }
+a:active {
+   color: #404040;
+   }
+a:hover {
+   color: red;
+   text-decoration: underline;
+   } 
+/* End Defaults */
+
+/* Begin specific class/object styles */
+table.main_outer {
+   height: 100%;
+   }
+table.DayHrs {display: '';}
+table.AllHrs {
+   display: none;
+   }
+tr.brk {display: none;}
+tr.lun {display: '';}
+tr.din {display: none;}
+tr.lat {display: none;}   
+td.leftcolumn {
+   /* Left-most column for notes, specials, hours, and manager names */
+   height: 100%;
+   width: 235px;
+   border: solid black 1pt;
+   vertical-align: top;
+   /* background-color: #eeeeff; */
+   background-color: #e3f1c3;
+   padding-left: 12px;
+   padding-right: 12px;
+   padding-top: 6px;
+   padding-bottom: 8px;
+   }
+td.AllHrs {
+   text-align: center !important;
+   } 
+td.titlecell {
+   height: 90px;
+   width: 565px;
+   border: solid black 1pt;
+   text-align: center;
+   vertical-align: middle;
+   background-color: #f8f8f8;
+   padding-bottom: 4px;
+   }
+td.selections {
+   height: 40px;
+   width: 565px;
+   border: solid black 1pt;
+   text-align: center;
+   vertical-align: middle;
+   background-color: #f8f8f8;
+   padding-bottom: 4px;
+   padding-top: 2px;   
+   }  
+td.chkbr {display: inline-block;}   
+td.chklu {display: inline-block;}
+td.chkdi {display: inline-block;}
+td.chkla {display: inline-block;}   
+td.dayname {
+   /* MON, TUE, WED, THU, etc. */
+   width: 37px; 
+   height: 80px; 
+   font-size: 18pt;
+   line-height: 95%; 
+   font-weight: 700; 
+   border: solid black 1pt;
+   text-align: center;  
+   vertical-align: top;
+   background-color: #606060; 
+   padding: 4px 0px 4px 0px;   
+   }
+td.dayouter {
+   /* Cell that holds table of daily menu data. */
+   width: 525px; 
+   border: solid #404040 1pt;
+   padding: 2px 2px 3px 2px;
+   vertical-align: top;
+   }
+table.dayinner {
+   /* Inner table with daily menu data, replaces ~(MONDAY)~ (etc) with data. */
+   text-align: left;
+   vertical-align: middle;
+   margin-left: -1px;
+   width: 100%;
+   }
+td.mealname {
+   background-color: #606060; 
+   color: #f0f0f0; 
+   font-weight: 700;
+   text-align: center;
+   vertical-align: middle;   
+   padding-left: 3px;
+   padding-top: 3px;
+   padding-bottom: 4px;   
+   }
+td.station {
+   vertical-align: middle;
+   width: 140px;
+   padding-top: 0px;
+   padding-right: 5px;
+   padding-bottom: 0px;
+   padding-left: 3px;
+   font-weight: bolder; 
+   color: #606060;
+   }
+td.menuitem {
+   width: 310px;
+   vertical-align: middle;
+   padding-top: 0px;
+   padding-right: 4px;
+   padding-bottom:0px;  
+   padding-left: 0px;
+   }  
+td.price {
+   display: inline-block;
+   text-align: right;
+   vertical-align: middle;
+   padding-top: 0px;
+   padding-right: 6px;
+   padding-bottom: 0px;
+   padding-left: 0px;
+   }
+a.menuitem {
+   text-decoration: underline;
+   color: #404040;
+   }
+div.menuitem {
+   cursor: pointer;
+   }
+span.ul {
+   text-decoration: underline;
+   }           
+td.key {
+   height: 18px;
+   font-size: 9pt;
+   text-align: center;
+   vertical-align: middle;
+   border: solid black 1pt;
+   color: #202020;
+   }
+img.icon {
+   border-width: 0px;
+   height: 14px;
+   vertical-align: bottom;
+   margin-top: 1px;
+   margin-left: 4px;
+  }  
+img.key {
+   border-width: 0px;
+   height: 16px;
+   }
+img.keyall {
+   height: 18px;
+   width: 450px;
+   border-width: 0px;
+   margin: 0px ;
+   }
+span.cpy {
+   text-align: center;
+   font-size: 7pt;
+   margin-top: 4px;
+   } 
+a.jumpto {
+   text-decoration: underline;
+   font-size: 10pt;
+   } 
+img.nav {
+   border-width: 0px;
+   margin-top: 6px;
+   margin-bottom: 6px;
+   }  
+ol,ul {
+   margin-top: 0px;
+   margin-bottom:0px;
+   margin-left:25px;
+   }
+li {
+   margin-left:0px;
+   }    
+/*  End specific class/object styles */   
+</style>
+
+</head>
+
+<body onload="return objInit();"><a name="pagetop"></a>
+<table id="main_outer" class="main_outer" align="center" cellpadding="4" cellspacing="0" border="0" width="780">
+
+<tr valign="top" align="left" bgcolor="#eeeeff">
+   <td class="leftcolumn" rowspan="18"><center>
+   <img src="logo.gif" 
+        style="margin-top:8px; 
+        margin-bottom:8px;  
+        margin-right:0px;
+        margin-left:0px;"
+        border="1" 
+        height="115" 
+        width="201"
+        alt="Logo Image"></center>
+        
+<noscript>
+<i style="font-weight:bold; color:#800000;">Javascript must be enabled to access all features in this page</i>:<br>
+<span style="line-height: 6px;"><br></span>
+<b>Internet Explorer 5 (and later)</b>
+<ol><li>Select Tools, Internet Options from the menu.</li>
+<li>Click the Security Tab and then the "Custom Level..." button.</li>
+<li>In the Scripting section near the bottom of the scrolling list, 
+enable Active Scripting.</li></ol><br>
+<b>FireFox 1.0 (and later)</b>
+<ol><li>Select Tools, Internet Options from the menu.</li>
+<li>Select "Content" at the top</li>
+<li>Check the "Enable Javascript" option</li></ol><br><hr><p>
+</noscript>        
+        
+   <span style="text-align:left;">Willard features a kiosk ordering system lets you get great stir-fry, grill items, personal pizzas, pasta and vegetarian options made right when you order it!<br>...............................................................<br><b>2/24/10: Carnival Night at Willard Dining Hall! Play games, win prizes and enjoy delicous carnival treats! </b></span><br>
+   <span style="line-height:8px;"><br></span> 
+   <center>
+   <b>&#0149;&nbsp;&nbsp;Hours of Operation&nbsp;&nbsp;&#0149;</b><br>
+   <span style="line-height:3px;"><br></span>
+   <table class="DayHrs" cellpadding="0" cellspacing="0" border="0" align="center"> 
+   <tr><td>Monday:</td><td>&nbsp;&nbsp;</td><td>8:00am-6:30pm</td></tr>
+   <tr><td>Tuesday:</td><td>&nbsp;&nbsp;</td><td>8:00am-6:30pm</td></tr>
+   <tr><td>Wednesday:</td><td>&nbsp;&nbsp;</td><td>8:00am-6:30pm</td></tr>
+   <tr><td>Thursday:</td><td>&nbsp;&nbsp;</td><td>8:00am-6:30pm</td></tr>
+   <tr><td>Friday:</td><td>&nbsp;&nbsp;</td><td>8:00am-11:30pm</td></tr>
+   <tr><td>Saturday:</td><td>&nbsp;&nbsp;</td><td>Closed</td></tr>
+   <tr><td>Sunday:</td><td>&nbsp;&nbsp;</td><td>Closed</td></tr>
+   </table>
+   <table class="AllHrs" cellpadding="0" cellspacing="0" border="0" align="center">
+   <tr><td class="AllHrs">Monday - Friday:<br>Lunch: 11:15 am - 1:15 pm<br>Dinner: 4:45 pm - 7:00 pm<br><br>Saturday & Sunday:<br>Closed</td></tr>
+   </table></center>
+   <span style="line-height:10px;"><br></span>
+   
+   <br><span style="line-height:6px;"><br></span>
+   <center style="margin-right:15px;">
+   <b>&#0149;&nbsp;&nbsp;Location&nbsp;&nbsp;&#0149; </b><br>
+   1865 Sherman Ave.<br><span style="line-height:6px;"><br></span>
+   <b>&#0149;&nbsp;&nbsp;Phone&nbsp;&nbsp;&#0149; </b><br>
+   (847) 491-2017<br><span style="line-height:6px;"><br></span>
+   <b>&#0149;&nbsp;&nbsp;Email&nbsp;&nbsp;&#0149; </b><br>
+   <span style="font-size:8pt;"><a href=mailto:terence.oneill@sodexo.com><u>Willard Café</u></a></span><br><span style="line-height:8px;"><br></span>
+   </center>
+   
+   </td>  
+   
+   <td class="titlecell" colspan="2">
+   <span style="font-size:200%; font-weight:bold; color:#606060;">Willard Café</span><br>
+   <span style="font-size:140%; font-weight:bold; color:#D08080;">Week of Monday February 22, 2010</span>
+   </td></tr>
+   
+   <tr><td class="selections" colspan="2">
+   <span style="font-size:10pt;"><center>
+   <table style="display:inline; text-align:center; vertical-align: middle; padding:0px; margin:0px; border-width:1px; border-collapse:collapse;">
+   <tr width="100%"> 
+   <td style="padding-top:2px;">Meal(s) to Display:&nbsp;&nbsp;</td>
+   <td class="chkbr"><input type="checkbox" id="chk_breakfast" onclick="showToggle('BRK')">Breakfast&nbsp;</td>
+   <td class="chklu"><input type="checkbox" id="chk_lunch" checked="checked" onclick="showToggle('LUN')">Lunch&nbsp;</td>
+   <td class="chkdi"><input type="checkbox" id="chk_dinner" onclick="showToggle('DIN')">Dinner&nbsp;</td>
+   <td class="chkla"><input type="checkbox" id="chk_late" onclick="showToggle('LAT')">Late Night&nbsp;</td>
+   </tr></table></center></span>
+   <span style="line-height: 8px;"><br></span>
+   <span style="font-size:10pt; text-align:center;">Jump to:&nbsp;&nbsp;
+   <a class="jumpto" href="#monday">Monday</a>&nbsp;&nbsp;      
+   <a class="jumpto" href="#tuesday">Tuesday</a>&nbsp;&nbsp;      
+   <a class="jumpto" href="#wednesday">Wednesday</a>&nbsp;&nbsp;      
+   <a class="jumpto" href="#thursday">Thursday</a>&nbsp;&nbsp;      
+   <a class="jumpto" href="#friday">Friday</a></span>  
+   </td>
+</tr>      
+
+<!-- MONDAY -->
+<tr bgcolor="#f7fafd">
+<td class="dayname" style="color: #f7fafd;">
+<a href="#pagetop"><img class="nav" src="first.gif" alt="Top of Page"></a><br>
+<a href="#monday"><img class="nav" src="prev.gif" alt="Prior Day"></a><br>
+<span style="line-height:8px;"><br></span>
+M<br>O<br>N<br>D<br>A<br>Y<br>
+<span style="line-height: 8px;"><br></span>
+<a href="#tuesday"><img class="nav" src="next.gif" alt="Next Day"></a><br>
+<a href="#friday"><img class="nav" src="last.gif" alt="Last Day"></a></td> 
+<td id="monday" class="dayouter"><a name="monday"></a>
+
+
+<table class="dayinner">
+<tr class="lun"><td colspan="3" class="mealname">&#0149; LUNCH &#0149;</td></tr><tr class="lun"><td class="station">&#0149; Soup:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000048834_00092');" onmouseout="pcls(this);"><span class="ul">Old Fashioned Chicken Noodle Soup</span> <img class="icon" src="ew.gif" alt="Well-Balanced"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000051815_06895');" onmouseout="pcls(this);"><span class="ul">Garlic & Tomato Soup</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Grill:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054488_27763');" onmouseout="pcls(this);"><span class="ul">Cheeseburger</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054134_27551');" onmouseout="pcls(this);"><span class="ul">Hot Dog on Bun</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000055548_59362');" onmouseout="pcls(this);"><span class="ul">Texas Style Grilled Cheese Sandwich</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054498_02194');" onmouseout="pcls(this);"><span class="ul">Grilled Chicken Sandwich</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000053975_63865');" onmouseout="pcls(this);"><span class="ul">Chicken Tenders Plate</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Entree:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000053993_06703');" onmouseout="pcls(this);"><span class="ul">Tandoori Chicken Plate</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054518_49256');" onmouseout="pcls(this);"><span class="ul">Sweet & Sour Chicken Stir Fry</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000053998_08837');" onmouseout="pcls(this);"><span class="ul">Cantonese Vegetable Stir Fry</span> <img class="icon" src="eg.gif" alt="Vegan"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Sides:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000004037_56422');" onmouseout="pcls(this);"><span class="ul">French Fries</span> <img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000050795_39229');" onmouseout="pcls(this);"><span class="ul">Chippers French Fries with Ranch Dip</span> <img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0178904154_63796');" onmouseout="pcls(this);"><span class="ul">Baked Potato</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ew.gif" alt="Well-Balanced"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0471213233_37341');" onmouseout="pcls(this);"><span class="ul">Fresh Broccoli Florets</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ew.gif" alt="Well-Balanced"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000044769_60160');" onmouseout="pcls(this);"><span class="ul">Basmati Rice</span> <img class="icon" src="ev.gif" alt="Vegetarian"><img class="icon" src="ew.gif" alt="Well-Balanced"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000012215_06088');" onmouseout="pcls(this);"><span class="ul">Minted Cucumber Salad</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Vegetarian/Vegan:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000050224_59847');" onmouseout="pcls(this);"><span class="ul">Pasta with Olives and Tomatoes</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ew.gif" alt="Well-Balanced"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000053965_35145');" onmouseout="pcls(this);"><span class="ul">Hummus & Flatbread Plate</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000047461_57208');" onmouseout="pcls(this);"><span class="ul">Falafel Sandwich</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000044855_48098');" onmouseout="pcls(this);"><span class="ul">Macaroni and Cheese</span> <img class="icon" src="ev.gif" alt="Vegetarian"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000055586_27151');" onmouseout="pcls(this);"><span class="ul">Grilled Portobello Burger</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Pasta:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000055286_15231');" onmouseout="pcls(this);"><span class="ul">Cavatappi with Grilled Italian Sausage</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000055282_49233');" onmouseout="pcls(this);"><span class="ul">Penne Melanzane Casserole</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Sandwich:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000048245_23342');" onmouseout="pcls(this);"><span class="ul">Tacchino Panini</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000049124_30849');" onmouseout="pcls(this);"><span class="ul">Spokane Spinach Salad Wrap</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Salad:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000046845_37635');" onmouseout="pcls(this);"><span class="ul">Chicken Caesar Salad</span> <img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000053963_04675');" onmouseout="pcls(this);"><span class="ul">Wedge Salad</span> <img class="icon" src="ev.gif" alt="Vegetarian"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Pizza:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054460_22099');" onmouseout="pcls(this);"><span class="ul">Cheese Pizza</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054544_48621');" onmouseout="pcls(this);"><span class="ul">iMYE Pepperoni Pizza (7&#0034;)</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054103_08929');" onmouseout="pcls(this);"><span class="ul">Spinach & Ricotta Flat Bread Pizza</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr>
+<tr class="din"><td colspan="3" class="mealname">&#0149; DINNER &#0149;</td></tr>
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Soup:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000048834_00092');" onmouseout="pcls(this);"><span class="ul">Old Fashioned Chicken Noodle Soup</span> <img class="icon" src="ew.gif" alt="Well-Balanced"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000051815_06895');" onmouseout="pcls(this);"><span class="ul">Garlic & Tomato Soup</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Grill:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054488_27763');" onmouseout="pcls(this);"><span class="ul">Cheeseburger</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054134_27551');" onmouseout="pcls(this);"><span class="ul">Hot Dog on Bun</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000055548_59362');" onmouseout="pcls(this);"><span class="ul">Texas Style Grilled Cheese Sandwich</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054498_02194');" onmouseout="pcls(this);"><span class="ul">Grilled Chicken Sandwich</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000053975_63865');" onmouseout="pcls(this);"><span class="ul">Chicken Tenders Plate</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Entree:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000046017_17598');" onmouseout="pcls(this);"><span class="ul">Meatloaf</span> <img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000034820_53172');" onmouseout="pcls(this);"><span class="ul">Mexican Black Bean Stew</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054518_49256');" onmouseout="pcls(this);"><span class="ul">Sweet & Sour Chicken Stir Fry</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000053998_08837');" onmouseout="pcls(this);"><span class="ul">Cantonese Vegetable Stir Fry</span> <img class="icon" src="eg.gif" alt="Vegan"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Sides:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000046903_43695');" onmouseout="pcls(this);"><span class="ul">Mashed Potatoes</span> <img class="icon" src="ew.gif" alt="Well-Balanced"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000044794_32805');" onmouseout="pcls(this);"><span class="ul">Steamed Corn</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ew.gif" alt="Well-Balanced"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000004037_56422');" onmouseout="pcls(this);"><span class="ul">French Fries</span> <img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000050795_39229');" onmouseout="pcls(this);"><span class="ul">Chippers French Fries with Ranch Dip</span> <img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0178904154_63796');" onmouseout="pcls(this);"><span class="ul">Baked Potato</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ew.gif" alt="Well-Balanced"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0471213233_37341');" onmouseout="pcls(this);"><span class="ul">Fresh Broccoli Florets</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ew.gif" alt="Well-Balanced"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000008163_50399');" onmouseout="pcls(this);"><span class="ul">Sticky Rice</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ew.gif" alt="Well-Balanced"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Vegetarian/Vegan:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000053965_35145');" onmouseout="pcls(this);"><span class="ul">Hummus & Flatbread Plate</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000047461_57208');" onmouseout="pcls(this);"><span class="ul">Falafel Sandwich</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000044855_48098');" onmouseout="pcls(this);"><span class="ul">Macaroni and Cheese</span> <img class="icon" src="ev.gif" alt="Vegetarian"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000055586_27151');" onmouseout="pcls(this);"><span class="ul">Grilled Portobello Burger</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Pasta:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000055286_15231');" onmouseout="pcls(this);"><span class="ul">Cavatappi with Grilled Italian Sausage</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000055282_49233');" onmouseout="pcls(this);"><span class="ul">Penne Melanzane Casserole</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Sandwich:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000048245_23342');" onmouseout="pcls(this);"><span class="ul">Tacchino Panini</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000049124_30849');" onmouseout="pcls(this);"><span class="ul">Spokane Spinach Salad Wrap</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Salad:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000046845_37635');" onmouseout="pcls(this);"><span class="ul">Chicken Caesar Salad</span> <img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000053963_04675');" onmouseout="pcls(this);"><span class="ul">Wedge Salad</span> <img class="icon" src="ev.gif" alt="Vegetarian"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Pizza:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054460_22099');" onmouseout="pcls(this);"><span class="ul">Cheese Pizza</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054544_48621');" onmouseout="pcls(this);"><span class="ul">iMYE Pepperoni Pizza (7&#0034;)</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054103_08929');" onmouseout="pcls(this);"><span class="ul">Spinach & Ricotta Flat Bread Pizza</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+</table>
+
+
+</td></tr>
+<tr bgcolor="#ffffff"><td colspan="2" class="key"><img src="iconkey.gif" class="keyall" alt="Icon Key"></td></tr>
+
+<!-- TUESDAY -->
+<tr bgcolor="#ffffe9">
+<td class="dayname" style="color:#ffffe9;">
+<a href="#pagetop"><img class="nav" src="first.gif" alt="Top of Page"></a><br>
+<a href="#monday"><img class="nav" src="prev.gif" alt="Prior Day"></a><br>
+<span style="line-height: 8px;"><br></span>
+T<br>U<br>E<br>S<br>D<br>A<br>Y<br>
+<span style="line-height: 8px;"><br></span>
+<a href="#wednesday"><img class="nav" src="next.gif" alt="Next Day"></a><br>
+<a href="#friday"><img class="nav" src="last.gif" alt="Last Day"></a>  
+</td>
+<td id="tuesday" class="dayouter"><a name="tuesday"></a>
+
+
+<table class="dayinner">
+<tr class="lun"><td colspan="3" class="mealname">&#0149; LUNCH &#0149;</td></tr><tr class="lun"><td class="station">&#0149; Soup:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000048808_04011');" onmouseout="pcls(this);"><span class="ul">Texas Chili</span> <img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000048900_02729');" onmouseout="pcls(this);"><span class="ul">Chunky Vegetable & Orzo Soup</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ew.gif" alt="Well-Balanced"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Grill:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054488_27763');" onmouseout="pcls(this);"><span class="ul">Cheeseburger</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054134_27551');" onmouseout="pcls(this);"><span class="ul">Hot Dog on Bun</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000055548_59362');" onmouseout="pcls(this);"><span class="ul">Texas Style Grilled Cheese Sandwich</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054498_02194');" onmouseout="pcls(this);"><span class="ul">Grilled Chicken Sandwich</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000053975_63865');" onmouseout="pcls(this);"><span class="ul">Chicken Tenders Plate</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Entree:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054080_17432');" onmouseout="pcls(this);"><span class="ul">Cheese Ravioli Pasta Bowl</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054518_49256');" onmouseout="pcls(this);"><span class="ul">Sweet & Sour Chicken Stir Fry</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000053998_08837');" onmouseout="pcls(this);"><span class="ul">Cantonese Vegetable Stir Fry</span> <img class="icon" src="eg.gif" alt="Vegan"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Sides:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000049023_11156');" onmouseout="pcls(this);"><span class="ul">Italian Vegetable Blend</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ew.gif" alt="Well-Balanced"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000004037_56422');" onmouseout="pcls(this);"><span class="ul">French Fries</span> <img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000050795_39229');" onmouseout="pcls(this);"><span class="ul">Chippers French Fries with Ranch Dip</span> <img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0178904154_63796');" onmouseout="pcls(this);"><span class="ul">Baked Potato</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ew.gif" alt="Well-Balanced"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0471213233_37341');" onmouseout="pcls(this);"><span class="ul">Fresh Broccoli Florets</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ew.gif" alt="Well-Balanced"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000008163_50399');" onmouseout="pcls(this);"><span class="ul">Sticky Rice</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ew.gif" alt="Well-Balanced"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Vegetarian/Vegan:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000034877_45916');" onmouseout="pcls(this);"><span class="ul">Curried Tofu with Jasmine Rice</span> <img class="icon" src="eg.gif" alt="Vegan"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000053965_35145');" onmouseout="pcls(this);"><span class="ul">Hummus & Flatbread Plate</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000047461_57208');" onmouseout="pcls(this);"><span class="ul">Falafel Sandwich</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000044855_48098');" onmouseout="pcls(this);"><span class="ul">Macaroni and Cheese</span> <img class="icon" src="ev.gif" alt="Vegetarian"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000055586_27151');" onmouseout="pcls(this);"><span class="ul">Grilled Portobello Burger</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Pasta:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000055286_15231');" onmouseout="pcls(this);"><span class="ul">Cavatappi with Grilled Italian Sausage</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000055282_49233');" onmouseout="pcls(this);"><span class="ul">Penne Melanzane Casserole</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Sandwich:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000048245_23342');" onmouseout="pcls(this);"><span class="ul">Tacchino Panini</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000049124_30849');" onmouseout="pcls(this);"><span class="ul">Spokane Spinach Salad Wrap</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Salad:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000046845_37635');" onmouseout="pcls(this);"><span class="ul">Chicken Caesar Salad</span> <img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000053963_04675');" onmouseout="pcls(this);"><span class="ul">Wedge Salad</span> <img class="icon" src="ev.gif" alt="Vegetarian"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Pizza:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054460_22099');" onmouseout="pcls(this);"><span class="ul">Cheese Pizza</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054544_48621');" onmouseout="pcls(this);"><span class="ul">iMYE Pepperoni Pizza (7&#0034;)</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054542_19141');" onmouseout="pcls(this);"><span class="ul">Chicago Pizza</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr>
+<tr class="din"><td colspan="3" class="mealname">&#0149; DINNER &#0149;</td></tr>
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Soup:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000048808_04011');" onmouseout="pcls(this);"><span class="ul">Texas Chili</span> <img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000048900_02729');" onmouseout="pcls(this);"><span class="ul">Chunky Vegetable & Orzo Soup</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ew.gif" alt="Well-Balanced"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Grill:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054488_27763');" onmouseout="pcls(this);"><span class="ul">Cheeseburger</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054134_27551');" onmouseout="pcls(this);"><span class="ul">Hot Dog on Bun</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000055548_59362');" onmouseout="pcls(this);"><span class="ul">Texas Style Grilled Cheese Sandwich</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054498_02194');" onmouseout="pcls(this);"><span class="ul">Grilled Chicken Sandwich</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000053975_63865');" onmouseout="pcls(this);"><span class="ul">Chicken Tenders Plate</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Entree:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000050087_60118');" onmouseout="pcls(this);"><span class="ul">Grilled Beer Marinated Pork Chop Plate</span> <img class="icon" src="ew.gif" alt="Well-Balanced"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054518_49256');" onmouseout="pcls(this);"><span class="ul">Sweet & Sour Chicken Stir Fry</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000053998_08837');" onmouseout="pcls(this);"><span class="ul">Cantonese Vegetable Stir Fry</span> <img class="icon" src="eg.gif" alt="Vegan"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Sides:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000050795_39229');" onmouseout="pcls(this);"><span class="ul">Chippers French Fries with Ranch Dip</span> <img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000004037_56422');" onmouseout="pcls(this);"><span class="ul">French Fries</span> <img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0178904154_63796');" onmouseout="pcls(this);"><span class="ul">Baked Potato</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ew.gif" alt="Well-Balanced"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0471213233_37341');" onmouseout="pcls(this);"><span class="ul">Fresh Broccoli Florets</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ew.gif" alt="Well-Balanced"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000008163_50399');" onmouseout="pcls(this);"><span class="ul">Sticky Rice</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ew.gif" alt="Well-Balanced"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000046903_43695');" onmouseout="pcls(this);"><span class="ul">Mashed Potatoes</span> <img class="icon" src="ew.gif" alt="Well-Balanced"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000049223_32355');" onmouseout="pcls(this);"><span class="ul">Warm Cinnamon Applesauce</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ew.gif" alt="Well-Balanced"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000050089_44695');" onmouseout="pcls(this);"><span class="ul">Braised Red Cabbage</span> <img class="icon" src="ew.gif" alt="Well-Balanced"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Vegetarian/Vegan:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000049092_43397');" onmouseout="pcls(this);"><span class="ul">Grilled Vegetable Wrap</span> <img class="icon" src="eg.gif" alt="Vegan"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000053965_35145');" onmouseout="pcls(this);"><span class="ul">Hummus & Flatbread Plate</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000047461_57208');" onmouseout="pcls(this);"><span class="ul">Falafel Sandwich</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000044855_48098');" onmouseout="pcls(this);"><span class="ul">Macaroni and Cheese</span> <img class="icon" src="ev.gif" alt="Vegetarian"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000055586_27151');" onmouseout="pcls(this);"><span class="ul">Grilled Portobello Burger</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Pasta:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000055286_15231');" onmouseout="pcls(this);"><span class="ul">Cavatappi with Grilled Italian Sausage</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000055282_49233');" onmouseout="pcls(this);"><span class="ul">Penne Melanzane Casserole</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Sandwich:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000048245_23342');" onmouseout="pcls(this);"><span class="ul">Tacchino Panini</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000049124_30849');" onmouseout="pcls(this);"><span class="ul">Spokane Spinach Salad Wrap</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Salad:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000046845_37635');" onmouseout="pcls(this);"><span class="ul">Chicken Caesar Salad</span> <img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000053963_04675');" onmouseout="pcls(this);"><span class="ul">Wedge Salad</span> <img class="icon" src="ev.gif" alt="Vegetarian"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Pizza:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054460_22099');" onmouseout="pcls(this);"><span class="ul">Cheese Pizza</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054544_48621');" onmouseout="pcls(this);"><span class="ul">iMYE Pepperoni Pizza (7&#0034;)</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054542_19141');" onmouseout="pcls(this);"><span class="ul">Chicago Pizza</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+</table>
+
+
+</td></tr>
+<tr bgcolor="#ffffff"><td colspan="2" class="key"><img src="iconkey.gif" class="keyall" alt="Icon Key"></td></tr>
+
+<!-- WEDNESDAY -->
+<tr bgcolor="#fef6f8">
+<td class="dayname" style="color:#fef6f8;">
+<a href="#pagetop"><img class="nav" src="first.gif" alt="Top of Page"></a><br>
+<a href="#tuesday"><img class="nav" src="prev.gif" alt="Prior Day"></a><br>
+<span style="line-height: 8px;"><br></span>
+W<br>E<br>D<br>N<br>E<br>S<br>D<br>A<br>Y<br>
+<span style="line-height: 8px;"><br></span>
+<a href="#thursday"><img class="nav" src="next.gif" alt="Next Day"></a><br>
+<a href="#friday"><img class="nav" src="last.gif" alt="Last Day"></a></td>
+<td id="wednesday" class="dayouter"><a name="wednesday"></a>
+
+
+<table class="dayinner">
+<tr class="lun"><td colspan="3" class="mealname">&#0149; LUNCH &#0149;</td></tr><tr class="lun"><td class="station">&#0149; Soup:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000048882_44391');" onmouseout="pcls(this);"><span class="ul">Hearty Beef Vegetable Soup</span> <img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000051918_34114');" onmouseout="pcls(this);"><span class="ul">Madras Pea Soup</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Grill:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054488_27763');" onmouseout="pcls(this);"><span class="ul">Cheeseburger</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054134_27551');" onmouseout="pcls(this);"><span class="ul">Hot Dog on Bun</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000055548_59362');" onmouseout="pcls(this);"><span class="ul">Texas Style Grilled Cheese Sandwich</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054498_02194');" onmouseout="pcls(this);"><span class="ul">Grilled Chicken Sandwich</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000053975_63865');" onmouseout="pcls(this);"><span class="ul">Chicken Tenders Plate</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Entree:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000053275_55597');" onmouseout="pcls(this);"><span class="ul">Ham & Potato Frittata</span> <img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054518_49256');" onmouseout="pcls(this);"><span class="ul">Sweet & Sour Chicken Stir Fry</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000053998_08837');" onmouseout="pcls(this);"><span class="ul">Cantonese Vegetable Stir Fry</span> <img class="icon" src="eg.gif" alt="Vegan"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Sides:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000038977_29883');" onmouseout="pcls(this);"><span class="ul">Mexican Rice</span> <img class="icon" src="ew.gif" alt="Well-Balanced"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000004037_56422');" onmouseout="pcls(this);"><span class="ul">French Fries</span> <img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000050795_39229');" onmouseout="pcls(this);"><span class="ul">Chippers French Fries with Ranch Dip</span> <img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0178904154_63796');" onmouseout="pcls(this);"><span class="ul">Baked Potato</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ew.gif" alt="Well-Balanced"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0471213233_37341');" onmouseout="pcls(this);"><span class="ul">Fresh Broccoli Florets</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ew.gif" alt="Well-Balanced"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000053217_14158');" onmouseout="pcls(this);"><span class="ul">Home Fried Potatoes</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Vegetarian/Vegan:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000047870_42383');" onmouseout="pcls(this);"><span class="ul">Vegan Soft Taco</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000053965_35145');" onmouseout="pcls(this);"><span class="ul">Hummus & Flatbread Plate</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000047461_57208');" onmouseout="pcls(this);"><span class="ul">Falafel Sandwich</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000044855_48098');" onmouseout="pcls(this);"><span class="ul">Macaroni and Cheese</span> <img class="icon" src="ev.gif" alt="Vegetarian"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000055586_27151');" onmouseout="pcls(this);"><span class="ul">Grilled Portobello Burger</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Pasta:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000055286_15231');" onmouseout="pcls(this);"><span class="ul">Cavatappi with Grilled Italian Sausage</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000055282_49233');" onmouseout="pcls(this);"><span class="ul">Penne Melanzane Casserole</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Sandwich:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000048245_23342');" onmouseout="pcls(this);"><span class="ul">Tacchino Panini</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000049124_30849');" onmouseout="pcls(this);"><span class="ul">Spokane Spinach Salad Wrap</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Salad:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000046845_37635');" onmouseout="pcls(this);"><span class="ul">Chicken Caesar Salad</span> <img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000053963_04675');" onmouseout="pcls(this);"><span class="ul">Wedge Salad</span> <img class="icon" src="ev.gif" alt="Vegetarian"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Pizza:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054460_22099');" onmouseout="pcls(this);"><span class="ul">Cheese Pizza</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054544_48621');" onmouseout="pcls(this);"><span class="ul">iMYE Pepperoni Pizza (7&#0034;)</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054816_34150');" onmouseout="pcls(this);"><span class="ul">Vegetable Lover&#0039;s Pizza</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr>
+<tr class="din"><td colspan="3" class="mealname">&#0149; DINNER &#0149;</td></tr>
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Entree:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000011794_14090');" onmouseout="pcls(this);"><span class="ul">Corndog</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000037513_41039');" onmouseout="pcls(this);"><span class="ul">Hot Dog with Bun</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('_28D0PEBK2');" onmouseout="pcls(this);"><span class="ul">Cheese Dog on Bun</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000039099_44626');" onmouseout="pcls(this);"><span class="ul">Hamburger on Bun</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000013033_01448');" onmouseout="pcls(this);"><span class="ul">Philly-Style Cheese Steak Sandwich</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000047725_58012');" onmouseout="pcls(this);"><span class="ul">Sausage with Peppers & Onions Sandwich</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('_28D0QR76F');" onmouseout="pcls(this);"><span class="ul">Grilled Chicken Breast Skewer</span> <img class="icon" src="ew.gif" alt="Well-Balanced"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('_23Y0QCSWK');" onmouseout="pcls(this);"><span class="ul">BBQ Veggie Riblet Sandwich</span> <img class="icon" src="eg.gif" alt="Vegan"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000008203_59633');" onmouseout="pcls(this);"><span class="ul">Gardenburger</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Sides:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000004037_56422');" onmouseout="pcls(this);"><span class="ul">French Fries</span> <img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000011180_59043');" onmouseout="pcls(this);"><span class="ul">Nachos</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000007178_37730');" onmouseout="pcls(this);"><span class="ul">Hot Pretzel Bar</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0020307217_02615');" onmouseout="pcls(this);"><span class="ul">Popcorn</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('_28D0QIZEU');" onmouseout="pcls(this);"><span class="ul">Peanuts</span> <img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Dessert:</td>
+<td class="menuitem">
+<div>Elephant Ears</div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000048700_61357');" onmouseout="pcls(this);"><span class="ul">Funnel Cake</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('_28D0QA1J6');" onmouseout="pcls(this);"><span class="ul">Cotton Candy</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('_2R312L08O');" onmouseout="pcls(this);"><span class="ul">Ice Cream Novelties</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Pizza:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000043592_51060');" onmouseout="pcls(this);"><span class="ul">Cheese Pizza</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000043594_27308');" onmouseout="pcls(this);"><span class="ul">Pepperoni Pizza</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+</table>
+
+
+</td></tr>
+<tr bgcolor="#ffffff"><td colspan="2" class="key"><img src="iconkey.gif" class="keyall" alt="Icon Key"></td></tr>
+
+<!-- THURSDAY -->
+<tr bgcolor="#f6f8ec">
+<td  class="dayname" style="color: #f6f8ec;">
+<a href="#pagetop"><img class="nav" src="first.gif" alt="Top of Page"></a><br>
+<a href="#wednesday"><img class="nav" src="prev.gif" alt="Prior Day"></a><br>
+<span style="line-height: 8px;"><br></span>
+ T<br>H<br>U<br>R<br>S<br>D<br>A<br>Y<br>
+<span style="line-height: 8px;"><br></span>
+<a href="#friday"><img class="nav" src="next.gif" alt="Next Day"></a><br>
+<a href="#friday"><img class="nav" src="last.gif" alt="Last Day"></a></td>
+<td id="thursday" class="dayouter"><a name="thursday"></a>
+
+
+<table class="dayinner">
+<tr class="lun"><td colspan="3" class="mealname">&#0149; LUNCH &#0149;</td></tr><tr class="lun"><td class="station">&#0149; Soup:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000045872_43664');" onmouseout="pcls(this);"><span class="ul">Mother&#0039;s Cream of Chicken Soup</span> <img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000048884_50667');" onmouseout="pcls(this);"><span class="ul">Mushroom Barley Soup</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ew.gif" alt="Well-Balanced"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Grill:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054488_27763');" onmouseout="pcls(this);"><span class="ul">Cheeseburger</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054134_27551');" onmouseout="pcls(this);"><span class="ul">Hot Dog on Bun</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000055548_59362');" onmouseout="pcls(this);"><span class="ul">Texas Style Grilled Cheese Sandwich</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054498_02194');" onmouseout="pcls(this);"><span class="ul">Grilled Chicken Sandwich</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000053975_63865');" onmouseout="pcls(this);"><span class="ul">Chicken Tenders Plate</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Entree:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000055310_33132');" onmouseout="pcls(this);"><span class="ul">Beef Orecchiette Casserole</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054518_49256');" onmouseout="pcls(this);"><span class="ul">Sweet & Sour Chicken Stir Fry</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000053998_08837');" onmouseout="pcls(this);"><span class="ul">Cantonese Vegetable Stir Fry</span> <img class="icon" src="eg.gif" alt="Vegan"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Sides:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000012196_19701');" onmouseout="pcls(this);"><span class="ul">Fresh Zucchini with Garlic & Basil</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000004037_56422');" onmouseout="pcls(this);"><span class="ul">French Fries</span> <img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000050795_39229');" onmouseout="pcls(this);"><span class="ul">Chippers French Fries with Ranch Dip</span> <img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0178904154_63796');" onmouseout="pcls(this);"><span class="ul">Baked Potato</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ew.gif" alt="Well-Balanced"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0471213233_37341');" onmouseout="pcls(this);"><span class="ul">Fresh Broccoli Florets</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ew.gif" alt="Well-Balanced"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000008163_50399');" onmouseout="pcls(this);"><span class="ul">Sticky Rice</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ew.gif" alt="Well-Balanced"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Vegetarian/Vegan:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000036230_47396');" onmouseout="pcls(this);"><span class="ul">Fried Tofu & Soy Ginger Sauce over Rice</span> <img class="icon" src="eg.gif" alt="Vegan"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000053965_35145');" onmouseout="pcls(this);"><span class="ul">Hummus & Flatbread Plate</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000047461_57208');" onmouseout="pcls(this);"><span class="ul">Falafel Sandwich</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000044855_48098');" onmouseout="pcls(this);"><span class="ul">Macaroni and Cheese</span> <img class="icon" src="ev.gif" alt="Vegetarian"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000055586_27151');" onmouseout="pcls(this);"><span class="ul">Grilled Portobello Burger</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Pasta:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000055286_15231');" onmouseout="pcls(this);"><span class="ul">Cavatappi with Grilled Italian Sausage</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000055282_49233');" onmouseout="pcls(this);"><span class="ul">Penne Melanzane Casserole</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Sandwich:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000048245_23342');" onmouseout="pcls(this);"><span class="ul">Tacchino Panini</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000049124_30849');" onmouseout="pcls(this);"><span class="ul">Spokane Spinach Salad Wrap</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Salad:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000046845_37635');" onmouseout="pcls(this);"><span class="ul">Chicken Caesar Salad</span> <img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000053963_04675');" onmouseout="pcls(this);"><span class="ul">Wedge Salad</span> <img class="icon" src="ev.gif" alt="Vegetarian"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Pizza:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054460_22099');" onmouseout="pcls(this);"><span class="ul">Cheese Pizza</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054544_48621');" onmouseout="pcls(this);"><span class="ul">iMYE Pepperoni Pizza (7&#0034;)</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054099_43950');" onmouseout="pcls(this);"><span class="ul">Roasted Garlic White Flatbread Pizza</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr>
+<tr class="din"><td colspan="3" class="mealname">&#0149; DINNER &#0149;</td></tr>
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Soup:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000045872_43664');" onmouseout="pcls(this);"><span class="ul">Mother&#0039;s Cream of Chicken Soup</span> <img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000048884_50667');" onmouseout="pcls(this);"><span class="ul">Mushroom Barley Soup</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ew.gif" alt="Well-Balanced"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Grill:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054488_27763');" onmouseout="pcls(this);"><span class="ul">Cheeseburger</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054134_27551');" onmouseout="pcls(this);"><span class="ul">Hot Dog on Bun</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000055548_59362');" onmouseout="pcls(this);"><span class="ul">Texas Style Grilled Cheese Sandwich</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054498_02194');" onmouseout="pcls(this);"><span class="ul">Grilled Chicken Sandwich</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000053975_63865');" onmouseout="pcls(this);"><span class="ul">Chicken Tenders Plate</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000047461_57208');" onmouseout="pcls(this);"><span class="ul">Falafel Sandwich</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Entree:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054000_02298');" onmouseout="pcls(this);"><span class="ul">Korean BBQ Chicken Plate</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054518_49256');" onmouseout="pcls(this);"><span class="ul">Sweet & Sour Chicken Stir Fry</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Sides:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000004037_56422');" onmouseout="pcls(this);"><span class="ul">French Fries</span> <img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000050795_39229');" onmouseout="pcls(this);"><span class="ul">Chippers French Fries with Ranch Dip</span> <img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0178904154_63796');" onmouseout="pcls(this);"><span class="ul">Baked Potato</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ew.gif" alt="Well-Balanced"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0471213233_37341');" onmouseout="pcls(this);"><span class="ul">Fresh Broccoli Florets</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ew.gif" alt="Well-Balanced"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000008163_50399');" onmouseout="pcls(this);"><span class="ul">Sticky Rice</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ew.gif" alt="Well-Balanced"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000053998_08837');" onmouseout="pcls(this);"><span class="ul">Cantonese Vegetable Stir Fry</span> <img class="icon" src="eg.gif" alt="Vegan"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Vegetarian/Vegan:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000050634_21115');" onmouseout="pcls(this);"><span class="ul">Curried Rice & Lentils</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ew.gif" alt="Well-Balanced"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000053965_35145');" onmouseout="pcls(this);"><span class="ul">Hummus & Flatbread Plate</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000044855_48098');" onmouseout="pcls(this);"><span class="ul">Macaroni and Cheese</span> <img class="icon" src="ev.gif" alt="Vegetarian"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000055586_27151');" onmouseout="pcls(this);"><span class="ul">Grilled Portobello Burger</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Pasta:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000055286_15231');" onmouseout="pcls(this);"><span class="ul">Cavatappi with Grilled Italian Sausage</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000055282_49233');" onmouseout="pcls(this);"><span class="ul">Penne Melanzane Casserole</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Sandwich:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000048245_23342');" onmouseout="pcls(this);"><span class="ul">Tacchino Panini</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000049124_30849');" onmouseout="pcls(this);"><span class="ul">Spokane Spinach Salad Wrap</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Salad:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000046845_37635');" onmouseout="pcls(this);"><span class="ul">Chicken Caesar Salad</span> <img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000053963_04675');" onmouseout="pcls(this);"><span class="ul">Wedge Salad</span> <img class="icon" src="ev.gif" alt="Vegetarian"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Pizza:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054460_22099');" onmouseout="pcls(this);"><span class="ul">Cheese Pizza</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054544_48621');" onmouseout="pcls(this);"><span class="ul">iMYE Pepperoni Pizza (7&#0034;)</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054099_43950');" onmouseout="pcls(this);"><span class="ul">Roasted Garlic White Flatbread Pizza</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+</table>
+
+
+</td></tr>
+<tr bgcolor="#ffffff"><td colspan="2" class="key"><img src="iconkey.gif" class="keyall" alt="Icon Key"></td></tr>
+
+<!-- FRIDAY -->
+<tr bgcolor="#f4f4f4">
+<td class="dayname" style="color: #f4f4f4;">
+<a href="#pagetop"><img class="nav" src="first.gif" alt="Top of Page"></a><br>
+<a href="#thursday"><img class="nav" src="prev.gif" alt="Prior Day"></a><br>
+<span style="line-height: 8px;"><br></span>
+F<br>R<br>I<br>D<br>A<br>Y<br>
+<span style="line-height: 8px;"><br></span>
+<a href="#pagetop"><img class="nav" src="next.gif" alt="Next Day"></a><br>
+<a href="#friday"><img class="nav" src="last.gif" alt="Last Day"></a></td>
+<td id="friday" class="dayouter"><a name="friday"></a>
+
+
+<table class="dayinner">
+<tr class="lun"><td colspan="3" class="mealname">&#0149; LUNCH &#0149;</td></tr><tr class="lun"><td class="station">&#0149; Soup:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000048836_35112');" onmouseout="pcls(this);"><span class="ul">Roast Turkey and Rice Soup</span> <img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000051784_35800');" onmouseout="pcls(this);"><span class="ul">Quibebe</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ew.gif" alt="Well-Balanced"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Grill:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054488_27763');" onmouseout="pcls(this);"><span class="ul">Cheeseburger</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054134_27551');" onmouseout="pcls(this);"><span class="ul">Hot Dog on Bun</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000055548_59362');" onmouseout="pcls(this);"><span class="ul">Texas Style Grilled Cheese Sandwich</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054498_02194');" onmouseout="pcls(this);"><span class="ul">Grilled Chicken Sandwich</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000053975_63865');" onmouseout="pcls(this);"><span class="ul">Chicken Tenders Plate</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Entree:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054150_22527');" onmouseout="pcls(this);"><span class="ul">Herbed Tuscan Cod</span> <img class="icon" src="ew.gif" alt="Well-Balanced"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000055731_40467');" onmouseout="pcls(this);"><span class="ul">Vegan Stuffed Peppers Plate</span> <img class="icon" src="eg.gif" alt="Vegan"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000055729_54425');" onmouseout="pcls(this);"><span class="ul">Pork Szechuan Stir Fry</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054528_58948');" onmouseout="pcls(this);"><span class="ul">Tofu Stir Fry</span> <img class="icon" src="eg.gif" alt="Vegan"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Sides:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000047511_20489');" onmouseout="pcls(this);"><span class="ul">Oven Roast Rosemary Red Potatoes</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ew.gif" alt="Well-Balanced"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000047011_09325');" onmouseout="pcls(this);"><span class="ul">Italian Green Beans</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ew.gif" alt="Well-Balanced"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000004037_56422');" onmouseout="pcls(this);"><span class="ul">French Fries</span> <img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000050795_39229');" onmouseout="pcls(this);"><span class="ul">Chippers French Fries with Ranch Dip</span> <img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0178904154_63796');" onmouseout="pcls(this);"><span class="ul">Baked Potato</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ew.gif" alt="Well-Balanced"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0471213233_37341');" onmouseout="pcls(this);"><span class="ul">Fresh Broccoli Florets</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ew.gif" alt="Well-Balanced"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000008163_50399');" onmouseout="pcls(this);"><span class="ul">Sticky Rice</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ew.gif" alt="Well-Balanced"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000038313_54175');" onmouseout="pcls(this);"><span class="ul">Spinach Sauteed</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Vegetarian/Vegan:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000053965_35145');" onmouseout="pcls(this);"><span class="ul">Hummus & Flatbread Plate</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000047461_57208');" onmouseout="pcls(this);"><span class="ul">Falafel Sandwich</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000044855_48098');" onmouseout="pcls(this);"><span class="ul">Macaroni and Cheese</span> <img class="icon" src="ev.gif" alt="Vegetarian"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000055527_58434');" onmouseout="pcls(this);"><span class="ul">Veggie Power Burger Sandwich</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Pasta:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000050154_46138');" onmouseout="pcls(this);"><span class="ul">Baked Ziti</span> <img class="icon" src="ew.gif" alt="Well-Balanced"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000050514_46534');" onmouseout="pcls(this);"><span class="ul">Spaghetti with Marinara Sauce</span> <img class="icon" src="ew.gif" alt="Well-Balanced"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Sandwich:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000052342_43549');" onmouseout="pcls(this);"><span class="ul">Siciliano Panini</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000047907_60623');" onmouseout="pcls(this);"><span class="ul">Veggie Sub Sandwich</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Salad:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000046845_37635');" onmouseout="pcls(this);"><span class="ul">Chicken Caesar Salad</span> <img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000048192_04929');" onmouseout="pcls(this);"><span class="ul">Spinach Salad</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr><tr class="lun"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="lun"><td class="station">&#0149; Pizza:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054460_22099');" onmouseout="pcls(this);"><span class="ul">Cheese Pizza</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054544_48621');" onmouseout="pcls(this);"><span class="ul">iMYE Pepperoni Pizza (7&#0034;)</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="lun"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054107_59012');" onmouseout="pcls(this);"><span class="ul">Sausage Pizza</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+
+
+<tr class="lun"><td colspan="3" style="height:3px;"></td></tr>
+<tr class="din"><td colspan="3" class="mealname">&#0149; DINNER &#0149;</td></tr>
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Soup:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000048836_35112');" onmouseout="pcls(this);"><span class="ul">Roast Turkey and Rice Soup</span> <img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000051784_35800');" onmouseout="pcls(this);"><span class="ul">Quibebe</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ew.gif" alt="Well-Balanced"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Grill:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054488_27763');" onmouseout="pcls(this);"><span class="ul">Cheeseburger</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054134_27551');" onmouseout="pcls(this);"><span class="ul">Hot Dog on Bun</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000055548_59362');" onmouseout="pcls(this);"><span class="ul">Texas Style Grilled Cheese Sandwich</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054498_02194');" onmouseout="pcls(this);"><span class="ul">Grilled Chicken Sandwich</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000053975_63865');" onmouseout="pcls(this);"><span class="ul">Chicken Tenders Plate</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Entree:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000055633_20112');" onmouseout="pcls(this);"><span class="ul">Parmesan Crusted Tilapia Plate</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000044898_47924');" onmouseout="pcls(this);"><span class="ul">Vegetable Lo Mein</span> <img class="icon" src="ew.gif" alt="Well-Balanced"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000055729_54425');" onmouseout="pcls(this);"><span class="ul">Pork Szechuan Stir Fry</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054528_58948');" onmouseout="pcls(this);"><span class="ul">Tofu Stir Fry</span> <img class="icon" src="eg.gif" alt="Vegan"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Sides:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000004037_56422');" onmouseout="pcls(this);"><span class="ul">French Fries</span> <img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000050795_39229');" onmouseout="pcls(this);"><span class="ul">Chippers French Fries with Ranch Dip</span> <img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0178904154_63796');" onmouseout="pcls(this);"><span class="ul">Baked Potato</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ew.gif" alt="Well-Balanced"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0471213233_37341');" onmouseout="pcls(this);"><span class="ul">Fresh Broccoli Florets</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ew.gif" alt="Well-Balanced"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000008163_50399');" onmouseout="pcls(this);"><span class="ul">Sticky Rice</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ew.gif" alt="Well-Balanced"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0360516197_61013');" onmouseout="pcls(this);"><span class="ul">Israeli Couscous</span> <img class="icon" src="eg.gif" alt="Vegan"><img class="icon" src="ew.gif" alt="Well-Balanced"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000034177_57965');" onmouseout="pcls(this);"><span class="ul">Herb Broiled Tomatoes</span> <img class="icon" src="ev.gif" alt="Vegetarian"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Vegetarian/Vegan:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000053965_35145');" onmouseout="pcls(this);"><span class="ul">Hummus & Flatbread Plate</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000047461_57208');" onmouseout="pcls(this);"><span class="ul">Falafel Sandwich</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000044855_48098');" onmouseout="pcls(this);"><span class="ul">Macaroni and Cheese</span> <img class="icon" src="ev.gif" alt="Vegetarian"><img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000055527_58434');" onmouseout="pcls(this);"><span class="ul">Veggie Power Burger Sandwich</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Pasta:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000050154_46138');" onmouseout="pcls(this);"><span class="ul">Baked Ziti</span> <img class="icon" src="ew.gif" alt="Well-Balanced"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000050514_46534');" onmouseout="pcls(this);"><span class="ul">Spaghetti with Marinara Sauce</span> <img class="icon" src="ew.gif" alt="Well-Balanced"></div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Sandwich:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000052342_43549');" onmouseout="pcls(this);"><span class="ul">Siciliano Panini</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000047907_60623');" onmouseout="pcls(this);"><span class="ul">Veggie Sub Sandwich</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Salad:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000046845_37635');" onmouseout="pcls(this);"><span class="ul">Chicken Caesar Salad</span> <img class="icon" src="ec.gif" alt="Carb-Friendly"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000048192_04929');" onmouseout="pcls(this);"><span class="ul">Spinach Salad</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+
+<tr class="din"><td colspan="3" style="height:3px;"></td></tr><tr class="din"><td colspan="3" bgcolor="#c0c0c0" style="height:1px;"></td></tr>
+<tr class="din"><td class="station">&#0149; Pizza:</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054460_22099');" onmouseout="pcls(this);"><span class="ul">Cheese Pizza</span> <img class="icon" src="ev.gif" alt="Vegetarian"></div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054544_48621');" onmouseout="pcls(this);"><span class="ul">iMYE Pepperoni Pizza (7&#0034;)</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+<tr class="din"><td class="station">&nbsp;</td>
+<td class="menuitem">
+<div class="menuitem" onmouseover="ws(this);" onclick="nf('0000054107_59012');" onmouseout="pcls(this);"><span class="ul">Sausage Pizza</span> </div></td>
+<td class="price">&nbsp;</td></tr>
+</table>
+
+
+</td></tr>
+<tr bgcolor="#ffffff"><td colspan="2" class="key"><img src="iconkey.gif" class="keyall" alt="Icon Key"></td></tr>
+
+<!-- END DAY DATA -->
+</table>
+
+<!-- FOOTER -->
+<span class="cpy"><center>Nutrition Information is provided by Sodexo, Inc.<br>
+Menu created by Sodexo Menu Graphics from Visual Graphic Systems, Inc. 800-203-0301<br>
+Templates ©Copyright <script>var cYear=showYear(); javascript:document.write(cYear);</script>  All Rights Reserved.</center></span>
+
+<!-- JAVASCRIPT DATA -->
+<script language="javascript" type="text/javascript">
+aData=new Object();
+aData['_23Y0QCSWK']=new Array('1 Serving (227g)','430','60','7','10','.5','3','0g','0','0','1200','50','70','23','6','24','10','22','0','50','20','15','BBQ Veggie Riblet Sandwich','','Contains wheat, soy beans','0','29','209','3');
+aData['0178904154_63796']=new Array('1 Potato (172g)','160','0','0','0','0','0','0g','0','0','10','0','37','12','3','12','3','3','0','35','0','4','Baked Potato','','','0','22','9','1');
+aData['0000050154_46138']=new Array('1 Cut-2x4 Hp (238g)','360','110','12','19','3','15','0g','15','5','480','20','49','16','4','16','0','13','20','35','15','15','Baked Ziti','Tender Ziti Pasta Layered with Sweet Red Peppers, Onions, Mushrooms, and Rich Meat Sauce.  Topped with Mozzarella Cheese','Contains milk, wheat','1020','22','125','3');
+aData['0000044769_60160']=new Array('1/2 Cup (27g)','110','0','0','0','0','0','0g','0','0','85','4','23','8','0','0','0','2','0','0','0','2','Basmati Rice','A Long Grain Rice with a Nut-like Flavor and Aroma','','0','0','8','0');
+aData['0000055310_33132']=new Array('1 Casserole (357g)','690','240','26','40','11','55','0g','65','22','1330','55','82','27','7','28','0','31','20','10','35','25','Beef Orecchiette Casserole','Orecchiette Pasta Baked in a Rich Tomato Sauce with Ground Beef and Cheese, Served with Fresh Focaccia Bread','Contains milk, wheat, soy beans','938','7','333','5');
+aData['0000050089_44695']=new Array('3 oz Spoodle (106g)','80','10','1','2','0','0','0g','0','0','50','2','17','6','2','8','14','1','2','40','4','4','Braised Red Cabbage','Red Cabbage and Apples Braised with Brown Sugar-Cider Vinegar Sauce','Contains milk, soy beans','144','23','39','1');
+aData['0000053998_08837']=new Array('1 Serving (208g)','300','90','9','14','1.5','8','0g','0','0','700','29','44','15','4','16','0','9','15','70','4','15','Cantonese Vegetable Stir Fry','Snow Peas, Mushrooms, Celery, Onion and Red Pepper Stir-Fried with Asian Noodles','Contains wheat, soy beans','748','39','37','3');
+aData['0000055286_15231']=new Array('1 Bowl (575g)','920','330','37','57','10','50','0g','65','22','1800','75','113','38','9','36','0','34','0','110','20','35','Cavatappi with Grilled Italian Sausage','Cavatappi Pasta Tossed with Grilled Italian Sausage, Onion, and Roasted Peppers, Served with Oven Fired Breadsticks','Contains milk, wheat, soy beans','0','64','190','6');
+aData['_28D0PEBK2']=new Array('1 Each (85g)','260','130','14','22','5','25','0g','30','10','670','28','22','7','1','4','3','10','2','0','8','10','Cheese Dog on Bun','','','68','0','84','2');
+aData['0000043592_51060']=new Array('1 Cut-8 (14") (120g)','250','60','7','10','3.5','18','0g','15','5','560','23','32','11','2','8','3','15','8','6','20','10','Cheese Pizza','Our Signature Pizza Crust Topped with Vine Ripened Tomato Sauce and Fancy Shredded Mozzarella Cheese','Contains milk, wheat, soy beans','372','3','223','2');
+aData['0000054460_22099']=new Array('1 Pizza (199g)','500','170','18','28','8','40','0g','35','12','1160','48','60','20','3','12','9','26','0','2','45','25','Cheese Pizza','','Contains milk, wheat, soy beans','0','1','425','4');
+aData['0000054080_17432']=new Array('1 Bowl (370g)','510','160','18','27','8','40','0g','80','27','1480','62','69','23','7','28','17','20','0','20','35','15','Cheese Ravioli Pasta Bowl','Cheese Filled Ravioli Baked in a Marinara Sauce Topped with Parmesan Cheese, Served with Focaccia','Contains milk, eggs, wheat, soy beans','0','12','335','3');
+aData['0000054488_27763']=new Array('1 Plate (357g)','630','330','37','56','10','50','0g','45','15','1370','57','52','17','6','24','6','26','30','15','20','25','Cheeseburger','Grilled Premium Burger Topped with American Cheese, Crispy Onions, Lettuce, and Tomato','Contains milk, wheat, soy beans','1473','9','205','4');
+aData['0000054542_19141']=new Array('1 Pizza (289g)','760','360','39','61','16','80','0g','80','27','1750','73','63','21','4','16','10','37','0','15','60','30','Chicago Pizza','Our Signature Pizza Topped with Italian Sausage, Peppers, Onions, and Mozzarella Cheese','Contains milk, wheat, soy beans','0','10','561','5');
+aData['0000046845_37635']=new Array('1 Salad (306g)','340','180','20','30','4','20','0g','40','13','1440','60','21','7','3','12','0','21','100','30','10','15','Chicken Caesar Salad','Crisp Romaine Lettuce Tossed with Garlic Chicken, Caesar Dressing, Shredded Parmesan and Croutons','Contains milk, fish, wheat, soy beans','5139','18','116','3');
+aData['0000053975_63865']=new Array('3 Tenders (234g)','620','390','44','67','6','30','0g','55','18','1670','70','42','14','2','8','23','16','10','2','6','8','Chicken Tenders Plate','Breaded Chicken Tender Deep Fried and Served with BBQ Sauce and Honey Mustard','Contains milk, eggs, wheat, soy beans','584','1','50','1');
+aData['0000050795_39229']=new Array('3 oz + 1 oz Dressing (113g)','330','240','27','41','3.5','18','0g','5','2','710','30','21','7','2','8','1','3','0','6','2','4','Chippers French Fries with Ranch Dip','','Contains milk, eggs, soy beans','38','4','23','1');
+aData['0000048900_02729']=new Array('6 oz Ladle (155g)','60','15','1.5','2','0','0','0g','0','0','370','15','9','3','1','4','0','2','30','10','4','4','Chunky Vegetable & Orzo Soup','A Fresh Vegetable Soup Loaded with Onion, Carrot, Celery, Green Beans, Tomato, Corn, Turnips, Zucchini, and Tender Ozo P','Contains wheat, soy beans','1503','7','30','1');
+aData['0000011794_14090']=new Array('1 Corndog (113g)','320','170','19','30','8','40','0g','25','8','750','31','26','9','1','4','9','10','0','0','2','10','Corndog','','Contains eggs, wheat, soy beans','0','0','23','2');
+aData['_28D0QA1J6']=new Array('2 oz (57g)','220','0','0','0','0','0','0g','0','0','0','0','56','19','0','0','56','3','0','0','0','0','Cotton Candy','','','0','0','0','0');
+aData['0000050634_21115']=new Array('7 oz (199g)','120','15','2','3','0','0','0g','0','0','290','12','22','7','4','16','4','4','4','20','6','15','Curried Rice & Lentils','Brown Rice and Lentils Simmered with Tomatoes Seasoned with Curry, Cumin and Coriander','','197','13','53','2');
+aData['0000034877_45916']=new Array('9.5 oz+4 oz Rice (384g)','680','440','49','75','24','120','0g','0','0','880','37','49','16','0','0','0','18','2','10','10','35','Curried Tofu with Jasmine Rice','Silken Tofu Simmered in Coconut Curry Sauce Served on a Bed of Steamed Jasmine Rice','Contains wheat, tree nuts, soy beans','125','6','110','6');
+aData['0000047461_57208']=new Array('1 Sandwich (216g)','390','160','18','28','2','10','0g','0','0','730','30','48','16','4','16','0','10','8','10','10','20','Falafel Sandwich','Pita Bread Filled with Fried Chickpea Fritters, Tahini Dressing and Tzatziki Sauce','Contains milk, eggs, wheat','389','6','111','3');
+aData['0000004037_56422']=new Array('3 oz (85g)','180','110','12','19','1','5','0g','0','0','30','1','17','6','2','8','0','2','0','0','0','2','French Fries','Regular Cut French Fries','Contains soy beans','38','0','8','0');
+aData['0471213233_37341']=new Array('2 oz (57g)','15','0','0','0','0','0','0g','0','0','15','1','3','1','2','8','0','2','15','70','2','2','Fresh Broccoli Florets','','','787','42','26','0');
+aData['0000012196_19701']=new Array('4 oz (113g)','60','40','4.5','7','.5','3','0g','0','0','250','10','4','1','2','8','2','1','25','8','2','2','Fresh Zucchini with Garlic & Basil','Sliced Zucchini Sauteed with Fresh Garlic and Basil','','1212','5','16','0');
+aData['0000036230_47396']=new Array('8 oz+4 oz Rice (348g)','420','150','17','26','1.5','8','0g','0','0','540','23','52','17','0','0','0','10','0','0','0','0','Fried Tofu & Soy Ginger Sauce over Rice','Fried Tofu, Snow Peas, Carrots, Water Chesnuts and Red Pepper Sauteed with Soy Ginger Sauce','Contains wheat, soy beans','0','0','0','0');
+aData['0000048700_61357']=new Array('1 Funnel Cake (83g)','280','80','9','14','4','20','0g','30','10','360','15','45','15','< 1','4','14','5','0','0','6','10','Funnel Cake','','Contains milk, eggs, wheat, soy beans','0','0','50','2');
+aData['0000008203_59633']=new Array('1 Sandwich (245g)','390','80','9','14','3','15','0g','25','8','1330','55','60','20','8','32','9','17','40','20','20','20','Gardenburger','A Gardenburger with Romaine, Tomato and Fat Free Ranch Dressing on a Toasted Bun','Contains milk, wheat, soy beans','2000','12','182','4');
+aData['0000051815_06895']=new Array('6 oz Ladle (179g)','60','25','3','4','0','0','0g','0','0','470','20','7','2','1','4','0','1','15','15','4','6','Garlic & Tomato Soup','Savory Broth with Tomato, Garlic and Parsley','','805','10','38','1');
+aData['0000050087_60118']=new Array('1 Plate (490g)','450','120','13','20','4.5','23','0g','50','17','340','14','63','21','5','20','36','21','10','60','10','10','Grilled Beer Marinated Pork Chop Plate','Pan Seared Pork Chop in Marinated in Beer Served with Mashed Potatoes, Braised Red Cabbage and Cinnamon Applesauce.','Contains milk, wheat, soy beans','569','34','118','2');
+aData['_28D0QR76F']=new Array('1 Each (113g)','190','50','6','9','1','5','0g','85','28','370','15','0','0','0','0','0','32','0','2','2','6','Grilled Chicken Breast Skewer','','','21','1','22','1');
+aData['0000054498_02194']=new Array('1 Plate (343g)','490','180','20','30','2.5','13','0g','45','15','1060','44','52','17','5','20','6','26','25','15','15','20','Grilled Chicken Sandwich','Grilled Chicken Breast topped with Lettuce and Tomatoes on a Sesame Seed Bun','Contains wheat, soy beans','1214','10','127','3');
+aData['0000055586_27151']=new Array('1 Plate (420g)','800','360','40','61','12','60','0g','40','13','1460','61','83','28','8','32','4','29','30','40','60','30','Grilled Portobello Burger','Grilled Marinated Portobello Mushrooms on Focaccia with Provolone, Lettuce, Tomato and Pesto','Contains milk, wheat, tree nuts, soy beans','1552','23','557','6');
+aData['0000049092_43397']=new Array('1 Wrap (312g)','370','80','9','14','3.5','18','0g','0','0','810','34','61','20','0','0','6','10','35','90','25','20','Grilled Vegetable Wrap','Balsamic Roasted Vegetables Rolled in a Soft Tortilla with Crisp Iceberg Lettuce, and Plum Tomato','Contains wheat, soy beans','1809','55','267','4');
+aData['0000053275_55597']=new Array('1 Skillet (177g)','280','150','17','26','6','30','0g','530','177','480','20','8','3','< 1','4','0','22','15','6','10','15','Ham & Potato Frittata','An Open-Face Omelet with Potatoes, Diced Ham and Green Onions','Contains milk, eggs, soy beans','813','3','122','3');
+aData['0000039099_44626']=new Array('1 Sandwich (112g)','310','140','16','24','6','30','0g','35','12','770','32','27','9','1','4','3','15','0','0','10','15','Hamburger on Bun','Grilled Marinated Hamburger Patty on a Plain Bun','Contains wheat','2','0','108','3');
+aData['0000048882_44391']=new Array('6 oz (170g)','70','30','3.5','5','.5','3','0g','5','2','520','22','7','2','1','4','0','3','40','6','2','2','Hearty Beef Vegetable Soup','Rich Beef Broth Loaded with Diced Beef and Hearty Garden Vegetables','Contains wheat, soy beans','2033','4','24','1');
+aData['0000034177_57965']=new Array('1 Half (65g)','35','15','1.5','3','0','0','0g','0','0','120','5','5','2','< 1','4','2','1','10','15','2','2','Herb Broiled Tomatoes','Tomato Half Baked with Tarragon, Basil, Parmesan and Italian Parsley','Contains milk, wheat, soy beans','523','8','28','0');
+aData['0000054150_22527']=new Array('1 Fillet (110g)','90','15','2','3','0','0','0g','40','13','580','24','1','0','0','0','0','16','6','10','2','4','Herbed Tuscan Cod','Seared Cod Rubbed with Olive Oil and Fresh Garlic, Thyme and Italian Parsley','Contains fish, wheat, soy beans','283','7','27','1');
+aData['0000053217_14158']=new Array('4 oz (113g)','150','60','7','11','3.5','18','0g','0','0','180','8','22','7','2','8','0','2','6','15','2','2','Home Fried Potatoes','Diced Potatoes Caramelized with Onions, Salt, and Pepper','Contains milk, soy beans','323','8','11','0');
+aData['0000054134_27551']=new Array('1 Sandwich (96g)','300','170','18','28','7','35','0g','30','10','800','33','22','7','1','4','3','10','2','2','8','10','Hot Dog on Bun','','Contains wheat','50','1','84','2');
+aData['0000037513_41039']=new Array('1 Sandwich (113g)','360','200','23','35','9','45','0g','40','13','910','38','25','8','< 1','4','5','12','0','0','6','10','Hot Dog with Bun','','Contains wheat','3','0','69','2');
+aData['0000007178_37730']=new Array('1 Pretzel+topping (118g)','210','30','3','5','.5','3','0g','< 5','1','470','20','40','13','2','8','2','7','0','0','4','15','Hot Pretzel Bar','Soft Pretzels Served Hot with Cheese Sauce, Dijon, Yellow and Spicy Brown Mustards','Contains milk, wheat, soy beans','47','0','40','3');
+aData['0000053965_35145']=new Array('1 Plate (103g)','270','130','14','22','2','10','0g','0','0','510','21','29','10','3','12','0','6','0','15','6','15','Hummus & Flatbread Plate','Crispy Seasoned Flatbread Topped with Creamy Lemon Garlic Hummus','Contains milk, wheat, soy beans','0','9','66','3');
+aData['_2R312L08O']=new Array('1 Novelty (76g)','180','80','8','13','5','25','0g','10','3','70','3','25','8','< 1','4','17','3','2','0','6','2','Ice Cream Novelties','','Contains milk, wheat, peanuts, soy beans','117','1','69','0');
+aData['0360516197_61013']=new Array('4 oz (115g)','130','0','0','0','0','0','0g','0','0','340','14','26','9','2','8','0','4','10','0','2','2','Israeli Couscous','','Contains wheat, soy beans','592','0','14','0');
+aData['0000047011_09325']=new Array('4 oz (113g)','30','0','0','0','0','0','0g','0','0','0','0','7','2','3','12','1','2','15','8','4','4','Italian Green Beans','','','632','5','48','1');
+aData['0000049023_11156']=new Array('1/2 Cup (88g)','35','0','0','0','0','0','0g','0','0','30','1','7','2','2','8','1','2','40','15','2','2','Italian Vegetable Blend','A Combination of Zucchini, Cauliflower, Crinkle Cut Carrots, Italian Green Beans and Lima Beans','','2062','9','21','0');
+aData['0000054000_02298']=new Array('1 Plate (316g)','430','120','14','21','2.5','13','0g','70','23','1070','45','49','16','4','16','0','26','20','70','6','20','Korean BBQ Chicken Plate','','Contains wheat, soy beans','950','41','58','4');
+aData['0000044855_48098']=new Array('4 oz (84g)','140','45','5','7','2','10','0g','10','3','330','14','20','7','< 1','4','2','5','2','0','8','4','Macaroni and Cheese','Classic Macaroni with Cheddar Cheese Sauce','Contains milk, wheat, soy beans','95','0','72','1');
+aData['0000051918_34114']=new Array('6 oz Ladle (202g)','90','15','1.5','2','0','0','0g','< 5','1','810','34','14','5','5','20','0','5','35','15','4','8','Madras Pea Soup','A Puree of Green Peas and Vegetable Broth, Seasoned with Garlic, Curry and Mint','Contains wheat, soy beans','1836','9','36','2');
+aData['0000046903_43695']=new Array('4 oz (113g)','90','10','1.5','2','.5','3','0g','0','0','95','4','17','6','1','4','1','2','0','10','2','2','Mashed Potatoes','','Contains milk, soy beans','4','7','12','0');
+aData['0000046017_17598']=new Array('4 oz (82g)','200','110','13','19','4.5','23','0g','90','30','240','10','10','3','< 1','4','0','12','2','0','4','10','Meatloaf','Homemade Meatloaf','Contains milk, eggs, fish, wheat, soy beans','65','0','47','2');
+aData['0000034820_53172']=new Array('6 oz Ladle (176g)','120','30','3.5','6','.5','3','0g','0','0','420','18','19','6','5','20','0','4','25','40','4','8','Mexican Black Bean Stew','A Savory Black Bean Stew with Acorn Squash, Poblano Peppers and Chipotle and Ancho Chiles','Contains wheat, soy beans','1169','25','41','1');
+aData['0000038977_29883']=new Array('1/2 Cup Portion (113g)','140','25','2.5','4','0','0','0g','0','0','45','2','25','8','< 1','4','0','3','8','15','2','2','Mexican Rice','Seasoned Rice','Contains soy beans','392','8','17','0');
+aData['0000012215_06088']=new Array('4 oz (113g)','50','35','4','6','.5','3','0g','0','0','0','0','4','1','< 1','4','0','1','4','8','2','2','Minted Cucumber Salad','Sliced Cucumbers, Mint Leaves and Orange Rind Tossed with a Sweet Red Wine Vinaigrette','','199','5','19','0');
+aData['0000045872_43664']=new Array('6 oz Ladle (165g)','240','190','21','32','11','55','0g','75','25','510','21','7','2','1','4','0','8','20','10','4','6','Mother\'s Cream of Chicken Soup','','Contains milk, wheat, soy beans','906','6','48','1');
+aData['0000048884_50667']=new Array('6 oz Ladle (156g)','45','5','1','1','0','0','0g','0','0','160','7','9','3','2','8','0','1','25','8','2','4','Mushroom Barley Soup','Creamy Barley and Mushroom Soup with Carrots, Onions, Celery, and Tomatoes','Contains wheat, soy beans','1255','4','22','1');
+aData['0000011180_59043']=new Array('1 Boat (170g)','590','300','33','51','6','30','0g','10','3','1280','53','66','22','6','24','6','10','6','4','15','6','Nachos','Tortilla Chips Topped with Nacho Cheese Sauce and Sliced Jalapeño Peppers','Contains milk, wheat, soy beans','286','2','164','1');
+aData['0000048834_00092']=new Array('6 oz Ladle (170g)','90','30','3.5','5','.5','3','0g','20','7','550','23','8','3','< 1','4','0','7','15','2','2','4','Old Fashioned Chicken Noodle Soup','An Old World Recipe-Rich Chicken Broth Loaded with Garden Vegetables, Roasted Chicken, and Egg Noodles','Contains eggs, wheat, soy beans','769','2','17','1');
+aData['0000047511_20489']=new Array('4 oz (115g)','140','45','5','8','.5','3','0g','0','0','170','7','22','7','2','8','0','2','0','25','2','2','Oven Roast Rosemary Red Potatoes','Red Bliss Potatoes Roasted with Olive Oil, Garlic, and Rosemary, Seasoned with Salt and Pepper','','12','15','12','0');
+aData['0000055633_20112']=new Array('1 Plate (367g)','370','110','12','18','2.5','13','0g','55','18','1160','48','37','12','4','16','0','29','35','45','10','10','Parmesan Crusted Tilapia Plate','','Contains milk, fish, wheat, soy beans','1713','27','101','2');
+aData['0000050224_59847']=new Array('9.75 oz (278g)','360','110','13','19','2','10','0g','0','0','190','8','53','18','6','24','0','10','0','20','4','20','Pasta with Olives and Tomatoes','Tomatoes, Olives, Peas and Mushrooms Sauteed with Garlic and Tossed with Spaghetti Pasta','Contains wheat, soy beans','0','12','44','4');
+aData['_28D0QIZEU']=new Array('1/4 Cup (37g)','220','170','19','29','3','15','0g','0','0','115','5','5','2','3','12','2','10','0','0','2','4','Peanuts','','','0','0','22','1');
+aData['0000055282_49233']=new Array('1 Casserole (319g)','500','150','17','26','7','35','0g','55','18','1250','52','68','23','9','36','0','20','15','15','35','15','Penne Melanzane Casserole','Baked Penne Pasta Layered with Roasted Eggplant, Marinara, and Four Cheeses, Served with Fresh Focaccia Bread','Contains milk, eggs, wheat, soy beans','867','8','326','3');
+aData['0000043594_27308']=new Array('1 Cut-8 (14") (129g)','290','100','11','17','5','25','0g','30','10','680','28','33','11','2','8','3','15','8','6','15','10','Pepperoni Pizza','Our Signature Pizza Crust Topped with Vine Ripened Tomato Sauce, Mozzarella Cheese and Savory Pepperoni Slices','Contains milk, wheat, soy beans','439','3','162','2');
+aData['0000013033_01448']=new Array('1 Sandwich (221g)','490','140','16','25','8','40','0g','60','20','1030','43','58','19','3','12','5','29','8','70','25','30','Philly-Style Cheese Steak Sandwich','Grilled Beef with Provolone Cheese, Sauteed Onions and Peppers on a Steak Roll','Contains milk, wheat, soy beans','413','40','272','6');
+aData['0020307217_02615']=new Array('1 Cup (12g)','100','80','9','13','1.5','8','0g','0','0','0','0','6','2','1','4','0','1','0','0','0','2','Popcorn','','Contains soy beans','15','0','1','0');
+aData['0000055729_54425']=new Array('1 Serving (335g)','420','170','19','30','4','20','0g','35','12','920','38','44','15','3','12','11','16','25','110','4','8','Pork Szechuan Stir Fry','Stir-Fried Asian Pork with Vegetables in a Spicy Szechuan Sauce','Contains wheat, soy beans','1208','64','46','1');
+aData['0000051784_35800']=new Array('6 oz Ladle (137g)','45','0','0','0','0','0','0g','0','0','360','15','10','3','2','8','4','1','0','20','2','6','Quibebe','A Spicy Spanish Winter Squash Soup','','0','11','27','1');
+aData['0000048836_35112']=new Array('6 oz Ladle (170g)','70','20','2','3','0','0','0g','10','3','1010','42','9','3','< 1','4','0','4','30','2','2','2','Roast Turkey and Rice Soup','Rich Broth Filled with Garden Vegetables, Roasted Turkey, and Tender Rice','Contains milk, wheat, soy beans','1436','2','23','0');
+aData['0000054099_43950']=new Array('1 Cut-2 (235g)','660','350','39','59','15','75','0g','65','22','1160','48','48','16','3','12','0','31','25','20','70','20','Roasted Garlic White Flatbread Pizza','Thin, Crispy Flatbread Topped with Melted Mozarella and Parmesan Cheese, Caramelized Garlic, Plum Tomato, and Italian He','Contains milk, wheat, soy beans','1140','13','676','4');
+aData['0000054107_59012']=new Array('1 Pizza (242g)','640','280','31','48','12','60','0g','60','20','1510','63','61','20','4','16','9','31','0','2','45','25','Sausage Pizza','','Contains milk, wheat, soy beans','0','1','450','5');
+aData['0000047725_58012']=new Array('1 Sandwich (227g)','440','210','23','36','6','30','0g','55','18','990','41','39','13','3','12','4','20','20','130','6','40','Sausage with Peppers & Onions Sandwich','Sweet Italian Sausage on a Club Roll with Sauteed Green Pepper and Onion','Contains wheat','1033','79','67','7');
+aData['0000052342_43549']=new Array('1 Sandwich (213g)','550','290','32','49','12','60','0g','80','27','1910','80','37','12','3','12','6','28','20','40','25','10','Siciliano Panini','Ham and Genoa Salami with Provolone and Hot Peppers on Grilled Focaccia','Contains milk, wheat, soy beans','899','23','247','2');
+aData['0000050514_46534']=new Array('4z Noodle+4z Sc (234g)','280','35','4','6','1','5','0g','< 5','1','750','31','52','17','5','20','0','9','30','10','8','15','Spaghetti with Marinara Sauce','Al Dente Spaghetti Noodles Topped with Marinara Simmered With Garden Vegetables and Grated Parmesan','Contains milk, wheat','1474','6','82','2');
+aData['0000054103_08929']=new Array('1 Cut-2 (360g)','560','250','28','43','10','50','0g','45','15','1300','54','52','17','6','24','5','26','0','70','50','35','Spinach & Ricotta Flat Bread Pizza','Thin, Crispy Flatbread Topped with Ricotta, Garlic, & Spinach Puree, Diced Onion, Tomato,and Parmesan','Contains milk, wheat, soy beans','0','41','542','7');
+aData['0000048192_04929']=new Array('1 Salad (230g)','390','270','30','46','5','25','0g','85','28','710','30','25','8','3','12','12','7','170','50','10','20','Spinach Salad','Baby Spinach Tossed with Red Onion, Egg, Mushrooms, Grape Tomatoes, Croutons and Honey Mustard Dressing','Contains milk, eggs, wheat, soy beans','8406','29','108','4');
+aData['0000038313_54175']=new Array('4 oz (116g)','50','25','2.5','4','0','0','0g','0','0','440','18','4','1','3','12','0','3','180','20','15','20','Spinach Sauteed','','','9203','11','154','4');
+aData['0000049124_30849']=new Array('1 Wrap (268g)','480','130','14','22','6','30','0g','15','5','1110','46','76','25','5','20','18','14','160','40','40','30','Spokane Spinach Salad Wrap','Tortilla Stuffed with Fresh Spinach, Balsamic Marinated Red Onions, Candied Pecan, Craisins, and Feta Cheese Sprinkled w','Contains milk, wheat, tree nuts, soy beans','8072','25','401','6');
+aData['0000044794_32805']=new Array('4 oz Spoodle (79g)','60','5','.5','1','0','0','0g','0','0','0','0','15','5','2','8','2','2','4','4','0','2','Steamed Corn','','','158','3','2','0');
+aData['0000008163_50399']=new Array('4 oz (113g)','180','0','0','0','0','0','0g','0','0','0','0','41','14','0','0','0','4','0','0','0','4','Sticky Rice','','','0','0','2','1');
+aData['0000054518_49256']=new Array('1 Serving (376g)','510','160','18','28','2','10','0g','25','8','830','35','72','24','3','12','26','16','4','50','6','10','Sweet & Sour Chicken Stir Fry','Deep-Fried Crispy Chicken Stir-Fried with Green Onions, Peppers, Pineapple and Sweet and Sour Sauce','Contains eggs, wheat, soy beans','216','30','66','2');
+aData['0000048245_23342']=new Array('1 Sandwich (237g)','530','230','25','39','8','40','0g','50','17','1510','63','55','18','2','8','2','31','10','6','35','30','Tacchino Panini','Roasted Turkey and Provolone with Pesto and Tomato on Grilled Focaccia','Contains milk, wheat, tree nuts, soy beans','503','3','332','5');
+aData['0000053993_06703']=new Array('1 Plate (285g)','330','120','13','20','2','10','0g','0','0','2810','117','30','10','2','8','0','23','15','20','8','10','Tandoori Chicken Plate','','Contains milk, wheat, soy beans','640','12','72','2');
+aData['0000048808_04011']=new Array('6 oz Ladle (226g)','250','150','16','25','6','30','0g','50','17','580','24','11','4','4','16','4','16','20','8','4','15','Texas Chili','An Extra Thick Chili with Ground Beef, Kidney Beans, Chili Seasoning, Cumin, Cayenne and Oregano','Contains wheat, soy beans','988','5','47','3');
+aData['0000055548_59362']=new Array('1 Plate (255g)','690','360','40','61','14','70','0g','40','13','1720','72','65','22','5','20','5','17','25','2','40','20','Texas Style Grilled Cheese Sandwich','Mild Cheddar Cheese Grilled to Perfection on Texas Toast','Contains milk, wheat, soy beans','1144','1','382','4');
+aData['0000054528_58948']=new Array('1 Serving (380g)','340','100','11','16','1.5','8','0g','0','0','2530','105','48','16','5','20','15','13','150','20','8','15','Tofu Stir Fry','Rice Stir Fried with Diced Tofu, Fresh Vegetables, Ginger & Garlic','Contains wheat, soy beans','7597','11','88','2');
+aData['0000047870_42383']=new Array('2 Tacos (285g)','310','60','6','10','0','0','0g','0','0','830','35','46','15','0','0','0','19','0','0','0','0','Vegan Soft Taco','Flour Tortillas Filled with Black Beans, Vegetable Burger Crumbles, Peppers, Tomatoes and Salsa','Contains milk, wheat, soy beans','0','0','0','0');
+aData['0000055731_40467']=new Array('1 Plate (581g)','410','45','5','8','.5','3','0g','0','0','2790','116','58','19','15','60','0','37','180','210','30','50','Vegan Stuffed Peppers Plate','','Contains milk, wheat, soy beans','9126','126','310','9');
+aData['0000044898_47924']=new Array('4 oz (115g)','140','40','4.5','7','.5','3','0g','0','0','160','7','20','7','2','8','0','4','70','35','2','6','Vegetable Lo Mein','Noodles with Fresh Vegetables & Sauce','Contains fish, wheat, soy beans','3507','22','27','1');
+aData['0000054816_34150']=new Array('1 Pizza (327g)','560','190','21','32','8','40','0g','0','0','1300','54','67','22','0','0','12','27','45','110','45','25','Vegetable Lover\'s Pizza','Our Signature Pizza Topped with Peppers, Onions, Zucchini, Yellow Squash and Mushrooms','Contains milk, wheat, soy beans','2144','64','440','5');
+aData['0000055527_58434']=new Array('1 Plate (403g)','560','190','21','32','2.5','13','0g','0','0','990','41','82','27','10','40','0','15','30','35','15','25','Veggie Power Burger Sandwich','Mediterranean-Spiced Couscous & Chickpea Patty with Cucumber Salad & Lemon Yogurt Sauce, Served on a Multi Grain Bun','Contains milk, wheat, soy beans','1495','20','146','4');
+aData['0000047907_60623']=new Array('1 Sub-6" (200g)','300','100','11','17','5','25','0g','20','7','820','34','42','14','0','0','0','9','70','50','10','15','Veggie Sub Sandwich','Garden Fresh Veggies and Herbed Cream Cheese on a Club Roll with Shredded Lettuce & Fresh Tomato','Contains milk, wheat','3736','33','94','3');
+aData['0000049223_32355']=new Array('4 oz (113g)','60','0','0','0','0','0','0g','0','0','0','0','16','5','2','8','14','0','0','2','2','2','Warm Cinnamon Applesauce','Warm Applesauce Infused with Cinnamon and Sugar','','34','1','10','0');
+aData['0000053963_04675']=new Array('1 Salad (193g)','350','310','34','53','7','35','0g','35','12','560','23','7','2','2','8','5','4','15','10','8','4','Wedge Salad','Iceberg Wedge Topped with Red Onions, Sliced Mushrooms, Sweet Grape Tomatoes, and Creamy Bleu Cheese Dressing','Contains milk, eggs, soy beans','679','6','88','1');
+aData['0000054544_48621']=new Array('1 Pizza (218g)','590','230','26','40','11','55','0g','55','18','1520','63','60','20','3','12','9','29','0','2','45','25','iMYE Pepperoni Pizza (7")','Our Signature Pizza Topped with Pepperoni Slices','Contains milk, wheat, soy beans','0','1','428','4');
+</script>
+
+
+<script language="javascript" type="text/javascript">
+nftext=new String(''+
+'<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">'+
+'<html style="overflow:hidden; margin:0px; padding:0px;">'+
+'<head>'+
+'<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">'+
+'</head>'+
+'<body style="margin:0px; font-family:Arial,Helvetica,sans-serif; font-size:8pt;">'+
+'<div style="position:relative; border:solid black 1pt; '+
+'     padding-top:2px; padding-left:3px; padding-right:2px; padding-bottom:0px; margin-left:1px; margin-top:1px; margin-bottom:0px; margin-right:1px;">'+
+'<table valign="top" style="width:210px; padding:0px; border-collapse:collapse; margin:0px;">'+
+'<tr>'+
+'<td style="padding:0px; width:11px; font-size:1px;"></td>'+
+'<td style="padding:0px; width:42px; font-size:1px;"></td>'+
+'<td style="padding:0px; width:32px; font-size:1px;"></td>'+
+'<td style="padding:0px; width:32px; font-size:1px;"></td>'+
+'<td style="padding:0px; width:32px; font-size:1px;"></td>'+
+'<td style="padding:0px; width:29px; font-size:1px;"></td>'+
+'<td style="padding:0px; width:32px; font-size:1px;"></td>'+
+'</tr>'+
+'<!-- NUTRITION FACTS -->'+
+'<tr>'+
+'<td colspan=7>'+
+'<span style="font-size:17pt; letter-spacing:'+((browserType=="firefox")?'2.5px;':'2.25px;')+
+' line-height:80%; margin-top:-10px; text-align:justify;"><b style="font-weight:600;">Nutrition Facts</b></span></td>'+
+'</tr>'+
+'<!-- SERVING SIZE -->'+
+'<tr><td colspan=7 style="line-height:10.0pt; border-bottom:solid black 8pt;">Serving Size ~servsize~</td></tr>'+
+'<!-- AMOUNT PER SERVING -->'+
+'<tr>'+
+'<td colspan=7 style="font-size:6.0pt; line-height:6.0pt; border-bottom:solid black 1pt;"><b>Amount per Serving</b></td>'+
+'</tr>'+
+'<!-- CALORIES / CALORIES FROM FAT -->'+
+'<tr>'+
+'<td colspan=3 style="line-height:10.0pt; border-bottom:solid black 3pt;"><b style="font-weight:600;">Calories</b> ~c~</td>'+
+'<td colspan=4 align=right style="line-height:10.0pt; border-bottom:solid black 3pt;">Calories from Fat ~cf~</td>'+
+'</tr>'+
+'<!-- DAILY VALUE -->'+
+'<tr>'+
+'<td colspan=7 align=right style="font-size:6.0pt; line-height:6.0pt; border-bottom:solid black 1pt;"><b>% Daily Value</b></td>'+
+'</tr>'+
+'<!-- TOTAL FAT -->'+
+'<tr>'+
+'<td colspan=4 style="line-height:10pt; border-bottom:solid black 1.0pt"><b style="font-weight:600;">Total Fat</b> ~fat~g</td>'+
+'<td colspan=3 align=right style="line-height:10pt; border-bottom:solid black 1pt;"><b style="font-weight:600;">~fatp~</b>%</td>'+
+'</tr>'+
+'<!-- SAT FAT -->'+
+'<tr>'+
+'<td style="width:11px; line-height:10pt;">&nbsp;</td>'+
+'<td colspan=4 style="line-height:10pt; border-bottom:solid black 1.0pt;">Saturated Fat ~sfat~g</td>'+
+'<td colspan=2 align=right style="line-height:10pt; border-bottom:solid black 1.0pt;"><b style="font-weight:600;">~sfatp~</b>%</td>'+
+'</tr>'+
+'<!-- TRANS FAT -->'+
+'<tr>'+
+'<td style="width:11px; line-height:10pt; border-bottom:solid black 1.0pt;">&nbsp;</td>'+
+'<td colspan=6 style="line-height:10pt; border-bottom:solid black 1.0pt;"><i>Trans</i> Fat ~tfat~</td>'+
+'</tr>'+
+'<!-- CHOLESTEROL -->'+
+'<tr >'+
+'<td colspan=4 style="line-height:10pt; border-bottom:solid black 1.0pt;"><b style="font-weight:600;">Cholesterol</b> ~chl~mg</td>'+
+'<td colspan=3 align=right style="line-height:10pt; border-bottom:solid black 1.0pt;"><b style="font-weight:600;">~chp~</b>%</td>'+
+'</tr>'+
+'<!-- SODIUM -->'+
+'<tr>'+
+'<td colspan=4 style="line-height:10pt; border-bottom:solid black 1.0pt;"><b style="font-weight:600;">Sodium</b> ~sod~mg</td>'+
+'<td colspan=3 align=right style="line-height:10pt; border-bottom:solid black 1.0pt;"><b style="font-weight:600;">~sodp~</b>%</td>'+
+'</tr>'+
+'<!-- TOTAL CARBOHYDRATES -->'+
+'<tr>'+
+'<td colspan=6 style="line-height:10pt; border-bottom:solid black 1.0pt;"><b style="font-weight:600;">Total Carbohydrates</b> ~b~g</td>'+
+'<td align=right style="line-height:10pt; border-bottom:solid black 1.0pt"><b style="font-weight:600;">~bp~</b>%</td>'+
+'</tr>'+
+'<!-- DIETARY FIBER -->'+
+'<tr>'+
+'<td style="line-height:10pt;">&nbsp;</td>'+
+'<td colspan=4 style="line-height:10pt; border-bottom:solid black 1.0pt;">Dietary Fiber ~df~g</td>'+
+'<td colspan=2 align=right style="line-height:10pt; border-bottom:solid black 1.0pt;"><b style="font-weight:600;">~dfp~</b>%</td>'+
+'</tr>'+
+'<!-- SUGARS -->'+
+'<tr>'+
+'<td style="line-height:10pt; border-bottom:solid black 1.0pt;">&nbsp;</td>'+
+'<td colspan=6 style="line-height:10pt; border-bottom:solid black 1.0pt;">Sugars ~sug~g</span></td>'+
+'</tr>'+
+'<!-- PROTEIN -->'+
+'<tr>'+
+'<td colspan=7 style="line-height:10pt; border-bottom:solid black 8.0pt;"><b>Protein</b> ~pro~g</td>'+
+'</tr>'+
+'<!-- VIT A/VIT C -->'+
+'<tr>'+
+'<td colspan=3 style="line-height:10pt; border-bottom:solid black 1.0pt;">Vitamin A ~a~%</td>'+
+'<td align=right style="line-height:10pt; border-bottom:solid black 1.0pt;"><b>&bull;</b>&nbsp;</td>'+
+'<td colspan=3 align=right style="line-height:10pt; border-bottom:solid black 1.0pt;">Vitamin C ~cp~%</td>'+
+'</tr>'+
+'<!-- CALCIUM/IRON -->'+
+'<tr>'+
+'<td colspan=3 style="line-height:10pt; border-bottom:solid black 1.0pt;">Calcium ~up~%</td>'+
+'<td align=right style="line-height:10pt; border-bottom:solid black 1.0pt;"><b>&bull;</b>&nbsp;</td>'+
+'<td colspan=3 align="right" style="line-height:10pt; border-bottom:solid black 1.0pt;">Iron ~ip~%</td>'+
+'</tr>'+
+'<!-- BASED ON -->'+
+'<tr>'+
+'<td align=center valign=top style="line-height:8.0pt; padding-top:2px;">*</td>'+
+'<td valign=top colspan=6 style="font-size:6.5pt; line-height:8.0pt; padding-top:2px;">Percent Daily Values are based on a 2,000 '+
+'calorie diet.</td></tr></table></div>'+
+'<div style="height:77px; font-size:7.5pt; line-height: 120%; margin-left:6px; margin-right:4px; margin-top:3px; margin-bottom:1px; vertical-align:top;">'+
+'<b>~rname~</b><div style="line-height: 120%; font-size:7pt; margin-left:1px; margin-top:1px; margin-bottom:2px;">~rdesc~</div></div>'+
+'<div style="z-index: 1; position:absolute; left:7px; right:2px; bottom:3px; font-size:7pt; color:#800000;">~allergen~</div>'+
+'</div></body></html>');
+</script>
+</body>
+</html>
