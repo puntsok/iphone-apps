@@ -1,7 +1,8 @@
 $.jQTouch({
     icon: 'kilo.png',
     statusbar: 'black-translucent',
-	useAnimations: true	
+	useAnimations: true,
+	flipSelector: '.meal li a'
 });
 
 $(document).ready( function() {
@@ -91,7 +92,7 @@ var nutrition_template =
 			'</tr>' +
 			'<tr>' +
 				'<td></td>' +
-				'<td><em>Trans</em> Fat ~7~g</td>' +
+				'<td><em>Trans</em> Fat ~7~</td>' +
 				'<td></td>' +
 			'</tr>' +
 			'<tr>' +
