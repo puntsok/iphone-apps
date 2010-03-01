@@ -64,25 +64,8 @@ ul.edgetoedge li img {
 	padding: 0;
 }
 
-.nutrition {
-	font-weight: normal;
-	font-size: 70%;
-	-moz-transition:    background-color 1s linear;
-	-webkit-transition: background-color 1s linear;
-	-o-transition:      background-color 1s linear;
-	-ms-transition:     background-color 1s linear;
-	transition:         background-color 1s linear;	
-}
-.nutrition.hide {
-	background-color: black;
-}
-.nutrition table {
-	margin: auto;
-	border-collapse: collapse;
-	margin:25px auto 0;
-}
 #nutrid {
-	background: white;
+/*	background: white;*/
 }
 
 .key {

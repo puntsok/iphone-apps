@@ -4,31 +4,6 @@ $.jQTouch({
 	useAnimations: true	
 });
 
-$(document).ready( function() {
-	
-	// $('.meal li a').bind('click', function(e) {
-	// 		// alert( e.target.nodeName) ;
-	// 		$('#nutrid').data( 'activator', e.target );
-	// 	});
-	
-	
-	
-	$('#nutrid').bind('pageAnimationStart', function(e, info){
-		var activator = $(e.target).data( 'activator');
-		console.log( 'pageAnimationStart', activator.name, e, info );
-		if ( info.direction === 'in' ) {
-			console.log( 'updating nutrid');
-			nf( activator.name );
-		}
-	});
-	
-	$('#himan_monday_breakfast').delegate('li a', 'click', function() {
-		console.log( 'delegated ');
-		$('#nutrid').data( 'activator', this );
-	});
-	
-});
-
 function ws(value) {
 	return;
 }
@@ -37,29 +12,129 @@ function pcls(value) {
 }
 
 // function depending on the hook I put in jQTouch
-// function beforeGoTo( node ) {
-// 	if ( node.hash === '#nutrid' ) {
-// 		nf( node.name, node );
-// 	}
-// }
+function beforeGoTo( node ) {
+	if ( node.hash === '#nutrid' ) {
+		nf( node.name, node );
+	}
+}
 
-
-
-var subbing_template, sub, i, re;
-function nf(idx) {
-		// console.log( idx );
-		// global nftextnew
-		subbing_template = nutrition_template;
+var p2, sub;
+function nf(idx, target) {
+			
+		var cstr = nftextnew;
 		sub = aData[idx];
-		for (i=0; i<25; i++) {
-			re = new RegExp( '~' + i + '~');
-			subbing_template = subbing_template.replace( re, sub[i] );
+		
+		
+		// coughing on the below, why?
+		
+		// var item_info = aData[idx];
+		// var c00='aData[idx][0]';
+		// var c01='aData[idx][1]'; 
+		// var c02='aData[idx][2]'; 
+		// var c03='aData[idx][3]'; 
+		// var c04='aData[idx][4]'; 
+		// var c05='aData[idx][5]'; 
+		// var c06='aData[idx][6]'; 
+		// var c07='aData[idx][7]'; 
+		// var c08='aData[idx][8]'; 
+		// var c09='aData[idx][9]'; 
+		// var c10='aData[idx][10]'; 
+		// var c11='aData[idx][11]'; 
+		// var c12='aData[idx][12]'; 
+		// var c13='aData[idx][13]'; 
+		// var c14='aData[idx][14]'; 
+		// var c15='aData[idx][15]'; 
+		// var c16='aData[idx][16]'; 
+		// var c17='aData[idx][17]'; 
+		// var c18='aData[idx][18]'; 
+		// var c19='aData[idx][19]'; 
+		// var c20='aData[idx][20]'; 
+		// var c21='aData[idx][21]';
+		// var c22='aData[idx][22]';
+		// var c23='aData[idx][23]'; 
+		// var c24='aData[idx][24]';
+		
+		// var c00=aData[idx][0];
+		// 	var c01=aData[idx][1]; 
+		// 	var c02=aData[idx][2]; 
+		// 	var c03=aData[idx][3]; 
+		// 	var c04=aData[idx][4]; 
+		// 	var c05=aData[idx][5]; 
+		// 	var c06=aData[idx][6]; 
+		// 	var c07=aData[idx][7]; 
+		// 	var c08=aData[idx][8]; 
+		// 	var c09=aData[idx][9]; 
+		// 	var c10=aData[idx][10]; 
+		// 	var c11=aData[idx][11]; 
+		// 	var c12=aData[idx][12]; 
+		// 	var c13=aData[idx][13]; 
+		// 	var c14=aData[idx][14]; 
+		// 	var c15=aData[idx][15]; 
+		// 	var c16=aData[idx][16]; 
+		// 	var c17=aData[idx][17]; 
+		// 	var c18=aData[idx][18]; 
+		// 	var c19=aData[idx][19]; 
+		// 	var c20=aData[idx][20]; 
+		// 	var c21=aData[idx][21];
+		// 	var c22=aData[idx][22];
+		// 	var c23=aData[idx][23]; 
+		// 	var c24=aData[idx][24];
+		// 	
+		// cstr=cstr.replace(/~servsize~/, c00);
+		// cstr=cstr.replace(/~c~/,        c01);
+		// cstr=cstr.replace(/~cf~/,       c02);
+		// cstr=cstr.replace(/~fat~/,      c03);
+		// cstr=cstr.replace(/~fatp~/,     c04);
+		// cstr=cstr.replace(/~sfat~/,     c05);
+		// cstr=cstr.replace(/~sfatp~/,    c06);
+		// cstr=cstr.replace(/~tfat~/,     c07);
+		// cstr=cstr.replace(/~chl~/,      c08);
+		// cstr=cstr.replace(/~chp~/,      c09);
+		// cstr=cstr.replace(/~sod~/,      c10);
+		// cstr=cstr.replace(/~sodp~/,     c11);
+		// cstr=cstr.replace(/~b~/,        c12);
+		// cstr=cstr.replace(/~bp~/,       c13);
+		// cstr=cstr.replace(/~df~/,       c14);
+		// cstr=cstr.replace(/~dfp~/,      c15);
+		// cstr=cstr.replace(/~sug~/,      c16);
+		// cstr=cstr.replace(/~pro~/,      c17);
+		// cstr=cstr.replace(/~a~/,        c18);
+		// cstr=cstr.replace(/~cp~/,       c19);
+		// cstr=cstr.replace(/~up~/,       c20);
+		// cstr=cstr.replace(/~ip~/,       c21);
+		// cstr=cstr.replace(/~rname~/,    c22);
+		// cstr=cstr.replace(/~rdesc~/,    c23);
+		// cstr=cstr.replace(/~allergen~/, c24);
+		// 
+		// cstr=cstr.replace(/4 oz Spoodle \(106g\)/, sub[0]);
+		// cstr=cstr.replace(/~1~/,                   sub[1]);
+		// cstr=cstr.replace(/~2~/,                   sub[2]);
+		// cstr=cstr.replace(/~3~/,                   sub[3]);
+		// cstr=cstr.replace(/~4~/,                   sub[4]);
+		// cstr=cstr.replace(/~5~/,                   sub[5]);
+		// cstr=cstr.replace(/~6~/,                   sub[6]);
+		// cstr=cstr.replace(/~7~/,                   sub[7]);
+		// cstr=cstr.replace(/~8~/,                   sub[8]);
+		// cstr=cstr.replace(/~9~/,                   sub[9]);
+		// cstr=cstr.replace(/~10~/,                  sub[10]);
+		// cstr=cstr.replace(/~11~/,                  sub[11]);
+		
+		for (var i=0; i<25; i++) {
+			var re = new RegExp( '~' + i + '~');
+			cstr = cstr.replace( re, sub[i] );
 		}
-		$( '#nutrition' ).replaceWith( subbing_template );
+		
+		
+		
+		$( '#nutrid' ).html( cstr );
+
 }
 
 
-var nutrition_template = 
+browserType = 'webkit';
+
+
+nftextnew = 
 '<div id="nutrition">' +
 	'<h1>Nutrition Facts</h1>' +
 	'<p>Serving Size ~0~</p>' +
@@ -141,7 +216,213 @@ var nutrition_template =
 	'<p>~23~</p>' +
 	'<p>~24~</p>' +
 '</div>';
+nftextnewRev=new String(''+
+'<div id="nutrid" class="nutrition">'+
+'<div class="toolbar"><h1>Nutritional Info</h1></div>' +
+'<a class="button back" href="#">Back</a>' +
 
+'<div>'+
+'<table>'+
+'<tr>'+
+'<td style="padding:0px; width:11px; font-size:1px;"></td>'+
+'<td style="padding:0px; width:42px; font-size:1px;"></td>'+
+'<td style="padding:0px; width:32px; font-size:1px;"></td>'+
+'<td style="padding:0px; width:32px; font-size:1px;"></td>'+
+'<td style="padding:0px; width:32px; font-size:1px;"></td>'+
+'<td style="padding:0px; width:29px; font-size:1px;"></td>'+
+'<td style="padding:0px; width:32px; font-size:1px;"></td>'+
+'</tr>'+
+'<!-- NUTRITION FACTS -->'+
+'<tr>'+
+'<td colspan=7>'+
+'<span style="font-size:17pt; letter-spacing:'+((browserType=="firefox")?'2.5px;':'2.25px;')+
+' line-height:80%; margin-top:-10px; text-align:justify;"><b style="font-weight:600;">Nutrition Facts</b></span></td>'+
+'</tr>'+
+'<!-- SERVING SIZE -->'+
+'<tr><td colspan=7 style="line-height:10.0pt; border-bottom:solid black 8pt;">Serving Size ~servsize~</td></tr>'+
+'<!-- AMOUNT PER SERVING -->'+
+'<tr>'+
+'<td colspan=7 style="font-size:6.0pt; line-height:6.0pt; border-bottom:solid black 1pt;"><b>Amount per Serving</b></td>'+
+'</tr>'+
+'<!-- CALORIES / CALORIES FROM FAT -->'+
+'<tr>'+
+'<td colspan=3 style="line-height:10.0pt; border-bottom:solid black 3pt;"><b style="font-weight:600;">Calories</b> ~c~</td>'+
+'<td colspan=4 align=right style="line-height:10.0pt; border-bottom:solid black 3pt;">Calories from Fat ~cf~</td>'+
+'</tr>'+
+'<!-- DAILY VALUE -->'+
+'<tr>'+
+'<td colspan=7 align=right style="font-size:6.0pt; line-height:6.0pt; border-bottom:solid black 1pt;"><b>% Daily Value</b></td>'+
+'</tr>'+
+'<!-- TOTAL FAT -->'+
+'<tr>'+
+'<td colspan=4 style="line-height:10pt; border-bottom:solid black 1.0pt"><b style="font-weight:600;">Total Fat</b> ~fat~g</td>'+
+'<td colspan=3 align=right style="line-height:10pt; border-bottom:solid black 1pt;"><b style="font-weight:600;">~fatp~</b>%</td>'+
+'</tr>'+
+'<!-- SAT FAT -->'+
+'<tr>'+
+'<td style="width:11px; line-height:10pt;">&nbsp;</td>'+
+'<td colspan=4 style="line-height:10pt; border-bottom:solid black 1.0pt;">Saturated Fat ~sfat~g</td>'+
+'<td colspan=2 align=right style="line-height:10pt; border-bottom:solid black 1.0pt;"><b style="font-weight:600;">~sfatp~</b>%</td>'+
+'</tr>'+
+'<!-- TRANS FAT -->'+
+'<tr>'+
+'<td style="width:11px; line-height:10pt; border-bottom:solid black 1.0pt;">&nbsp;</td>'+
+'<td colspan=6 style="line-height:10pt; border-bottom:solid black 1.0pt;"><i>Trans</i> Fat ~tfat~</td>'+
+'</tr>'+
+'<!-- CHOLESTEROL -->'+
+'<tr >'+
+'<td colspan=4 style="line-height:10pt; border-bottom:solid black 1.0pt;"><b style="font-weight:600;">Cholesterol</b> ~chl~mg</td>'+
+'<td colspan=3 align=right style="line-height:10pt; border-bottom:solid black 1.0pt;"><b style="font-weight:600;">~chp~</b>%</td>'+
+'</tr>'+
+'<!-- SODIUM -->'+
+'<tr>'+
+'<td colspan=4 style="line-height:10pt; border-bottom:solid black 1.0pt;"><b style="font-weight:600;">Sodium</b> ~sod~mg</td>'+
+'<td colspan=3 align=right style="line-height:10pt; border-bottom:solid black 1.0pt;"><b style="font-weight:600;">~sodp~</b>%</td>'+
+'</tr>'+
+'<!-- TOTAL CARBOHYDRATES -->'+
+'<tr>'+
+'<td colspan=6 style="line-height:10pt; border-bottom:solid black 1.0pt;"><b style="font-weight:600;">Total Carbohydrates</b> ~b~g</td>'+
+'<td align=right style="line-height:10pt; border-bottom:solid black 1.0pt"><b style="font-weight:600;">~bp~</b>%</td>'+
+'</tr>'+
+'<!-- DIETARY FIBER -->'+
+'<tr>'+
+'<td style="line-height:10pt;">&nbsp;</td>'+
+'<td colspan=4 style="line-height:10pt; border-bottom:solid black 1.0pt;">Dietary Fiber ~df~g</td>'+
+'<td colspan=2 align=right style="line-height:10pt; border-bottom:solid black 1.0pt;"><b style="font-weight:600;">~dfp~</b>%</td>'+
+'</tr>'+
+'<!-- SUGARS -->'+
+'<tr>'+
+'<td style="line-height:10pt; border-bottom:solid black 1.0pt;">&nbsp;</td>'+
+'<td colspan=6 style="line-height:10pt; border-bottom:solid black 1.0pt;">Sugars ~sug~g</span></td>'+
+'</tr>'+
+'<!-- PROTEIN -->'+
+'<tr>'+
+'<td colspan=7 style="line-height:10pt; border-bottom:solid black 8.0pt;"><b>Protein</b> ~pro~g</td>'+
+'</tr>'+
+'<!-- VIT A/VIT C -->'+
+'<tr>'+
+'<td colspan=3 style="line-height:10pt; border-bottom:solid black 1.0pt;">Vitamin A ~a~%</td>'+
+'<td align=right style="line-height:10pt; border-bottom:solid black 1.0pt;"><b>&bull;</b>&nbsp;</td>'+
+'<td colspan=3 align=right style="line-height:10pt; border-bottom:solid black 1.0pt;">Vitamin C ~cp~%</td>'+
+'</tr>'+
+'<!-- CALCIUM/IRON -->'+
+'<tr>'+
+'<td colspan=3 style="line-height:10pt; border-bottom:solid black 1.0pt;">Calcium ~up~%</td>'+
+'<td align=right style="line-height:10pt; border-bottom:solid black 1.0pt;"><b>&bull;</b>&nbsp;</td>'+
+'<td colspan=3 align="right" style="line-height:10pt; border-bottom:solid black 1.0pt;">Iron ~ip~%</td>'+
+'</tr>'+
+'<!-- BASED ON -->'+
+'<tr>'+
+'<td align=center valign=top style="line-height:8.0pt; padding-top:2px;">*</td>'+
+'<td valign=top colspan=6 style="font-size:6.5pt; line-height:8.0pt; padding-top:2px;">Percent Daily Values are based on a 2,000 '+
+'calorie diet.</td></tr></table></div>'+
+'<div style="text-align:center">'+
+'<b>~rname~</b><div style="">~rdesc~</div></div>'+
+'<div style="text-align:center">~allergen~</div>'+
+'</div></div>');
+
+nftextold=new String(''+
+//'<div class="nutrition hide">'+
+'<div>'+
+'<table>'+
+'<tr>'+
+'<td style="padding:0px; width:11px; font-size:1px;"></td>'+
+'<td style="padding:0px; width:42px; font-size:1px;"></td>'+
+'<td style="padding:0px; width:32px; font-size:1px;"></td>'+
+'<td style="padding:0px; width:32px; font-size:1px;"></td>'+
+'<td style="padding:0px; width:32px; font-size:1px;"></td>'+
+'<td style="padding:0px; width:29px; font-size:1px;"></td>'+
+'<td style="padding:0px; width:32px; font-size:1px;"></td>'+
+'</tr>'+
+'<!-- NUTRITION FACTS -->'+
+'<tr>'+
+'<td colspan=7>'+
+'<span style="font-size:17pt; letter-spacing:'+((browserType=="firefox")?'2.5px;':'2.25px;')+
+' line-height:80%; margin-top:-10px; text-align:justify;"><b style="font-weight:600;">Nutrition Facts</b></span></td>'+
+'</tr>'+
+'<!-- SERVING SIZE -->'+
+'<tr><td colspan=7 style="line-height:10.0pt; border-bottom:solid black 8pt;">Serving Size ~servsize~</td></tr>'+
+'<!-- AMOUNT PER SERVING -->'+
+'<tr>'+
+'<td colspan=7 style="font-size:6.0pt; line-height:6.0pt; border-bottom:solid black 1pt;"><b>Amount per Serving</b></td>'+
+'</tr>'+
+'<!-- CALORIES / CALORIES FROM FAT -->'+
+'<tr>'+
+'<td colspan=3 style="line-height:10.0pt; border-bottom:solid black 3pt;"><b style="font-weight:600;">Calories</b> ~c~</td>'+
+'<td colspan=4 align=right style="line-height:10.0pt; border-bottom:solid black 3pt;">Calories from Fat ~cf~</td>'+
+'</tr>'+
+'<!-- DAILY VALUE -->'+
+'<tr>'+
+'<td colspan=7 align=right style="font-size:6.0pt; line-height:6.0pt; border-bottom:solid black 1pt;"><b>% Daily Value</b></td>'+
+'</tr>'+
+'<!-- TOTAL FAT -->'+
+'<tr>'+
+'<td colspan=4 style="line-height:10pt; border-bottom:solid black 1.0pt"><b style="font-weight:600;">Total Fat</b> ~fat~g</td>'+
+'<td colspan=3 align=right style="line-height:10pt; border-bottom:solid black 1pt;"><b style="font-weight:600;">~fatp~</b>%</td>'+
+'</tr>'+
+'<!-- SAT FAT -->'+
+'<tr>'+
+'<td style="width:11px; line-height:10pt;">&nbsp;</td>'+
+'<td colspan=4 style="line-height:10pt; border-bottom:solid black 1.0pt;">Saturated Fat ~sfat~g</td>'+
+'<td colspan=2 align=right style="line-height:10pt; border-bottom:solid black 1.0pt;"><b style="font-weight:600;">~sfatp~</b>%</td>'+
+'</tr>'+
+'<!-- TRANS FAT -->'+
+'<tr>'+
+'<td style="width:11px; line-height:10pt; border-bottom:solid black 1.0pt;">&nbsp;</td>'+
+'<td colspan=6 style="line-height:10pt; border-bottom:solid black 1.0pt;"><i>Trans</i> Fat ~tfat~</td>'+
+'</tr>'+
+'<!-- CHOLESTEROL -->'+
+'<tr >'+
+'<td colspan=4 style="line-height:10pt; border-bottom:solid black 1.0pt;"><b style="font-weight:600;">Cholesterol</b> ~chl~mg</td>'+
+'<td colspan=3 align=right style="line-height:10pt; border-bottom:solid black 1.0pt;"><b style="font-weight:600;">~chp~</b>%</td>'+
+'</tr>'+
+'<!-- SODIUM -->'+
+'<tr>'+
+'<td colspan=4 style="line-height:10pt; border-bottom:solid black 1.0pt;"><b style="font-weight:600;">Sodium</b> ~sod~mg</td>'+
+'<td colspan=3 align=right style="line-height:10pt; border-bottom:solid black 1.0pt;"><b style="font-weight:600;">~sodp~</b>%</td>'+
+'</tr>'+
+'<!-- TOTAL CARBOHYDRATES -->'+
+'<tr>'+
+'<td colspan=6 style="line-height:10pt; border-bottom:solid black 1.0pt;"><b style="font-weight:600;">Total Carbohydrates</b> ~b~g</td>'+
+'<td align=right style="line-height:10pt; border-bottom:solid black 1.0pt"><b style="font-weight:600;">~bp~</b>%</td>'+
+'</tr>'+
+'<!-- DIETARY FIBER -->'+
+'<tr>'+
+'<td style="line-height:10pt;">&nbsp;</td>'+
+'<td colspan=4 style="line-height:10pt; border-bottom:solid black 1.0pt;">Dietary Fiber ~df~g</td>'+
+'<td colspan=2 align=right style="line-height:10pt; border-bottom:solid black 1.0pt;"><b style="font-weight:600;">~dfp~</b>%</td>'+
+'</tr>'+
+'<!-- SUGARS -->'+
+'<tr>'+
+'<td style="line-height:10pt; border-bottom:solid black 1.0pt;">&nbsp;</td>'+
+'<td colspan=6 style="line-height:10pt; border-bottom:solid black 1.0pt;">Sugars ~sug~g</span></td>'+
+'</tr>'+
+'<!-- PROTEIN -->'+
+'<tr>'+
+'<td colspan=7 style="line-height:10pt; border-bottom:solid black 8.0pt;"><b>Protein</b> ~pro~g</td>'+
+'</tr>'+
+'<!-- VIT A/VIT C -->'+
+'<tr>'+
+'<td colspan=3 style="line-height:10pt; border-bottom:solid black 1.0pt;">Vitamin A ~a~%</td>'+
+'<td align=right style="line-height:10pt; border-bottom:solid black 1.0pt;"><b>&bull;</b>&nbsp;</td>'+
+'<td colspan=3 align=right style="line-height:10pt; border-bottom:solid black 1.0pt;">Vitamin C ~cp~%</td>'+
+'</tr>'+
+'<!-- CALCIUM/IRON -->'+
+'<tr>'+
+'<td colspan=3 style="line-height:10pt; border-bottom:solid black 1.0pt;">Calcium ~up~%</td>'+
+'<td align=right style="line-height:10pt; border-bottom:solid black 1.0pt;"><b>&bull;</b>&nbsp;</td>'+
+'<td colspan=3 align="right" style="line-height:10pt; border-bottom:solid black 1.0pt;">Iron ~ip~%</td>'+
+'</tr>'+
+'<!-- BASED ON -->'+
+'<tr>'+
+'<td align=center valign=top style="line-height:8.0pt; padding-top:2px;">*</td>'+
+'<td valign=top colspan=6 style="font-size:6.5pt; line-height:8.0pt; padding-top:2px;">Percent Daily Values are based on a 2,000 '+
+'calorie diet.</td></tr></table></div>'+
+'<div style="text-align:center">'+
+'<b>~rname~</b><div style="">~rdesc~</div></div>'+
+'<div style="text-align:center">~allergen~</div>'+
+// '</div>'+
+'</div>');
 
 
 aData=new Object();

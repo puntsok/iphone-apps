@@ -1,17 +1,16 @@
-<!DOCTYPE html SYSTEM "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<title>Nucuisine Menus</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
-		
 		<link rel="stylesheet" type="text/css" href="libs/jqtouch/jqtouch.css" />
 		<link rel="stylesheet" type="text/css" href="libs/jqtouch/themes/apple/theme.css" />
 		<link rel="stylesheet" type="text/css" href="libs/jqtouch/themes/apple/overrides.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="app_nutri.css" media="screen" />
 		<link rel="apple-touch-startup-image"  href="startup-image.jpg"/>
-		
-		<script type="text/javascript" src="libs/jquery/jquery.1.3.2.min.js" ></script>
-		<script type="text/javascript" src="libs/jqtouch/jqtouch-work.js" ></script>
-		
+		<script type="text/javascript" src="libs/jquery/jquery-1.4.2.min.js" ></script>
+		<script type="text/javascript" src="libs/jqtouch/jqtouch.js" ></script>
 		<script type="text/javascript" src="application.js"></script>
 	</head>
 	<body>
@@ -28,24 +27,13 @@
 			
 			<ul class="edgetoedge">
 				
-				
 				<li class="arrow"><a href="#himan">1835 Himan</a></li>
-				<li class="arrow slideup"><a href="#nutrid">Allison</a></li>
+				<li class="arrow"><a href="#nutrid">Allison</a></li>
 				<li class="arrow"><a href="#fosterwalkereast">Foster-Walker East</a></li>
 				<li class="arrow"><a href="#fosterwalkerwest">Foster-Walker West</a></li>
 				<li class="arrow"><a href="#elder">Elder</a></li>
 				<li class="arrow"><a href="#sargent">Sargent</a></li>
 				<li class="arrow"><a href="#willard">Willard</a></li>
-
-				<h2>Next Week, Feb. 15 thru 21:</h2>
-				<li class="arrow"><a href="#himan">1835 Himan</a></li>
-				<li class="arrow"><a href="#allison">Allison</a></li>
-				<li class="arrow"><a href="#fosterwalkereast">Foster-Walker East</a></li>
-				<li class="arrow"><a href="#fosterwalkerwest">Foster-Walker West</a></li>
-				<li class="arrow"><a href="#elder">Elder</a></li>
-				<li class="arrow"><a href="#sargent">Sargent</a></li>
-				<li class="arrow"><a href="#willard">Willard</a></li>
-				
 
 			</ul>
 		</div>
@@ -67,7 +55,6 @@
 				<li class="arrow"><a href="#himan_sunday"   >Sunday</a></li>
 			</ul>
 		</div>
-		
 						<div id="himan_monday">
 							<div class="toolbar">
 								<h1>Monday</h1>
@@ -81,7 +68,7 @@
 							</ul>
 						</div>
 						
-									<div id="himan_monday_breakfast">
+									<div id="himan_monday_breakfast" class="meal">
 										<div class="toolbar">
 											<h1>Breakfast</h1>
 											<a class="button back" href="#">Back</a>
@@ -95,20 +82,26 @@
 												<span class="ew">Well-Balanced</span>
 											</div></li>
 											
-											<h2>Hot Cereal</h2>
-											<li class="arrow" id="test"><div class="menuitem" onmouseover="ws(this);" onclick="nf('0000052299_26971', this);" onmouseout="pcls(this);"><span class="ul">Baja Beef Sandwich</span> <img class="icon" src="libs/jqtouch/themes/apple/img/ew.gif" alt="Well-Balanced" /><img class="icon" src="libs/jqtouch/themes/apple/img/ec.gif" alt="Carb-Friendly" /></div></li>
+									
 								
-											<h2>Entrée</h2>
+											<li>Entrée</li>
+											
 											<li class="arrow">
 												<a href="#nutrid" name="0000037255_51215">
-													<span>Scrambled Eggs</span>
+													Scrambled Eggs 1
+												</a>
+											</li>
+											
+											<li class="arrow">
+												<a href="#nutrid" name="0000037255_51215">
+													<span>Scrambled Eggs 2</span>
 													<img alt="Vegetarian" src="libs/jqtouch/themes/apple/img/ev.gif"/>
 													<img alt="Carb-Friendly" src="libs/jqtouch/themes/apple/img/ec.gif"/>
 												</a>
 											</li>
-											<li class="arrow"><a href="#">Vegan Pancakes</a></li>
 											
-											<h2>Sides</h2>
+											
+											<li>Sides</li>
 											<li class="arrow">
 												<a href="#nutrid" name="0000047071_31787">
 													<span>Crisp Bacon</span>
@@ -130,7 +123,12 @@
 		</div>
 		
 		<div id="nutrid" class="nutrition">
-			<p>I am empty</p>
+			<div class="toolbar">
+					<h1>Nutrition</h1>
+					<a class="button back" href="#">Back</a>
+			</div>
+			<div id="nutrition">
+			</div>
 		</div>
 
 		

@@ -1,7 +1,7 @@
 (function(){
 // ==============================
 
-var daysOfWeek = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'],
+var daysOfWeek = ['monday','tuesday','wednesday','thursday','friday','saturday','sun_day'],
 	places     = ['hinman','allison','foster_east','foster_west','elder','sargent','willard','willies','tech'],
 	meals      = ['breakfast','lunch','dinner'],
 	i;
@@ -33,7 +33,7 @@ p.makeHead = function() {
 	if ( this.type !== 'places' ) {
 		back = '<a href="#">Back</a>';
 	}
-	
+		
 	return '<h1>' + back + title + '</h1>';
 };
 p.makeBody = function() {

@@ -1,0 +1,97 @@
+/*resetting*/
+
+#nutrition * {
+	color: black;
+	margin: 0;
+	padding: 0;
+	text-shadow: none;
+	background-color: transparent;
+	font-size: 100%;
+	border: none;
+}
+
+/*resetting*/
+
+html {
+/*	background:#666;*/
+}
+body {
+	margin:0;
+}
+#nutrition {
+	background:#fff;
+	width:300px;
+	font-family:HelveticaNeue, sans-serif;
+	font-size: 100%;
+	border: 1px solid black;
+	margin:auto;
+	padding: 9px;
+	min-height:480px;
+}
+#nutrition table {
+	width:100%;
+	border-collapse: collapse;
+	border-top:10px solid #000;
+	font-size: 100%;
+}
+#nutrition table:nth-of-type(2) {
+	border-top:5px solid #000;
+}
+#nutrition table:nth-of-type(3) {
+	border-bottom: 1px solid #000;
+	margin-bottom:9px;
+}
+#nutrition td {
+	border-top:1px solid #000;
+	line-height:1.41;
+}
+#nutrition td:last-of-type {
+	text-align:right;
+}
+#nutrition table:nth-of-type(1) tr:last-of-type td {
+	border-bottom: none;
+}
+#nutrition table:nth-of-type(2) td:nth-of-type(1) {
+	width:15px;
+	border-top: none;
+}
+#nutrition table:nth-of-type(1) tr:nth-of-type(1) td {
+	font-size: 80%;
+}
+#nutrition table:nth-of-type(2) td[colspan] {
+	border-top: 1px solid black;
+}
+#nutrition h1 {
+	margin: 0;
+	font-size: 200%;
+	text-align:center;
+	   -moz-transform: scaleX(1.33);
+	-webkit-transform: scaleX(1.33);
+}
+#nutrition h2 {
+	text-align:center;
+	margin:0 0 7px;
+	font-style:italic;
+}
+#nutrition p {
+	margin:0;
+}
+#nutrition h1 ~ p {
+	text-align:left;
+	margin-bottom:7px;
+}
+#nutrition h2 ~ p {
+	text-align:center;
+	margin:0;
+}
+#nutrition table + p {
+	margin-left:10px;
+	text-align:left;
+	text-indent:-9px;
+	font-size:80%;
+	margin-bottom:1em;
+}
+#nutrition p:last-of-type {
+	font-style:italic;
+	color:red;
+}
