@@ -11,7 +11,7 @@ function init() {
 		days, day,
 		nutriscript, nutrid,
 		venues = [
-			'hinman' /*,
+			'hinman' ,
 			'allison',
 			'foster_east',
 			'foster_west',
@@ -19,7 +19,7 @@ function init() {
 			'sargent',
 			'willard',
 			'willies',
-			'tech' */
+			'tech' /**/
 		], venue,
 		items, item, itemObject,
 		mealtime,
@@ -111,6 +111,7 @@ function init() {
 	};
 	
 	result = JSON.stringify( data );
+	result = 'eatins=' + result + ';';
 	result_area.append( result );
 	console.log( data );
 	

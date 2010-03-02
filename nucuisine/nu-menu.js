@@ -6,12 +6,13 @@ var daysOfWeek = ['monday','tuesday','wednesday','thursday','friday','saturday',
 	meals      = ['breakfast','lunch','dinner'],
 	i;
 
-Numenu = function( config ) {
+Numenu = function( config, data ) {
 	// places, venue, day, meal, nutrition, hours
 	this.type  = config.type;
 	this.venue = config.venue;
 	this.meal  = config.meal;
 	this.day   = config.day;
+	this.data  = config.data;
 };
 
 var p = Numenu.prototype;

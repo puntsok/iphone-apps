@@ -7,13 +7,6 @@ $.jQTouch({
 
 $(document).ready( function() {
 	
-	// $('.meal li a').bind('click', function(e) {
-	// 		// alert( e.target.nodeName) ;
-	// 		$('#nutrid').data( 'activator', e.target );
-	// 	});
-	
-	
-	
 	$('#nutrid').bind('pageAnimationStart', function(e, info){
 		var activator = $(e.target).data( 'activator');
 		console.log( 'pageAnimationStart', activator.name, e, info );
