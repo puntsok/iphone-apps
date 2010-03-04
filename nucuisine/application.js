@@ -6,20 +6,51 @@ $.jQTouch({
 });
 
 $(document).ready( function() {
+
+
+	var numenu = new Numenu({
+		data: eatins,
+		type: 'places'
+	});
+
+	$('#places').html( numenu.makeAll() );
 	
-	$('#nutrid').bind('pageAnimationStart', function(e, info){
-		var activator = $(e.target).data( 'activator');
-		console.log( 'pageAnimationStart', activator.name, e, info );
-		if ( info.direction === 'in' ) {
-			console.log( 'updating nutrid');
-			nf( activator.name );
+	$('body').delegate( 'a', 'click', function(e) {
+		var n = e.currentTarget;
+		console.log( n );
+		console.log( n.rel, n.hash );
+		
+		if (n.hash==='#venue') {
+			numenu.type = 'venue';
+			numenu.venue = n.rel;
+			$('#venue').html( numenu.makeAll() );
 		}
+		
+		if (n.hash==='#day') {
+			numenu.type = 'day';
+			numenu.day = n.rel;
+			
+		
+			$('#day').html( numenu.makeAll() );
+		}
+		
 	});
 	
-	$('#himan_monday_breakfast').delegate('li a', 'click', function() {
-		console.log( 'delegated ');
-		$('#nutrid').data( 'activator', this );
-	});
+	console.log( numenu );
+	
+	// $('#nutrid').bind('pageAnimationStart', function(e, info){
+	// 	var activator = $(e.target).data( 'activator');
+	// 	console.log( 'pageAnimationStart', activator.name, e, info );
+	// 	if ( info.direction === 'in' ) {
+	// 		console.log( 'updating nutrid');
+	// 		nf( activator.name );
+	// 	}
+	// });
+	// 
+	// $('#himan_monday_breakfast').delegate('li a', 'click', function() {
+	// 	console.log( 'delegated ');
+	// 	$('#nutrid').data( 'activator', this );
+	// });
 	
 });
 

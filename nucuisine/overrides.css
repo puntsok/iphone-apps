@@ -17,12 +17,12 @@ html {
 /*	background: #745FA0;*/
 }
 
-div.nucuisine {
+#places div.nucuisine {
 	background: url(img/logo.gif)
 		no-repeat center center;
 	height: 94px;
 }
-div.nucuisine h1 {
+#places div.nucuisine h1 {
 	display: none;
 }
 

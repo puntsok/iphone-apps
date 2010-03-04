@@ -4,11 +4,17 @@
 var daysOfWeek = ['monday','tuesday','wednesday','thursday','friday','saturday','sun_day'],
 	places     = ['hinman','allison','foster_east','foster_west','elder','sargent','willard','willies','tech'],
 	meals      = ['breakfast','lunch','dinner'],
+	meal_names = {
+		brk: 'breakfast',
+		lun: 'lunch',
+		din: 'dinner',
+		lat: 'late night'
+	},
 	i;
 
-Numenu = function( config, data ) {
+Numenu = function( config ) {
 	// places, venue, day, meal, nutrition, hours
-	this.type  = config.type;
+	this.type  = config.type; // places, venue, day, meal
 	this.venue = config.venue;
 	this.meal  = config.meal;
 	this.day   = config.day;
@@ -19,7 +25,8 @@ var p = Numenu.prototype;
 p.makeHead = function() {
 
 	var title = this.type,
-		back = '';
+		back = '',
+		more = '';
 		
 	if  ( this.type === 'venue' ) {
 		title = this.venue;
@@ -32,10 +39,15 @@ p.makeHead = function() {
 	}
 	
 	if ( this.type !== 'places' ) {
-		back = '<a href="#">Back</a>';
+		back = '<a href="#" class="button back">Back</a>';
+	}
+	if ( this.type === 'places' ) {
+		more = '<h2>Current</h2>';
 	}
 		
-	return '<h1>' + back + title + '</h1>';
+	return '<div class="toolbar nucuisine">' +
+		'<h1>' + title + '</h1>' + back +
+		'</div>' + more;
 };
 p.makeBody = function() {
 	var text = '';
@@ -44,25 +56,25 @@ p.makeBody = function() {
 	}
 	
 	if ( this.type === 'venue' ) {
-		text +=  '<ul>';	
-		for (i=0; i<daysOfWeek.length; i++) {
-			var day = daysOfWeek[i];
-			text += '<li>';
-			text += '<a href="#day" rel="venue_' + this.venue + '-day_'+ day + '">';
-			text += day;
-			text += '</a>';
-			text += '</li>';
+		text +=  '<ul class="edgetoedge">';	
+		for ( day in this.data.d[this.venue] ) {
+			if (day !== 'hours' ) {
+				text += '<li class="arrow">';
+				text += '<a href="#day" rel="' + day + '">';
+				text += day;
+				text += '</a>';
+				text += '</li>';
+			}
 		}	
 		text += '</ul>';
 	}
 	
 	if ( this.type === 'places' ) {
-		text +=  '<ul>';	
-		for (i=0; i<places.length; i++) {
-			var place = places[i];
-			text += '<li>';
-			text += '<a href="#venue" rel="venue_' + place + '">';
-			text += place;
+		text +=  '<ul class="edgetoedge">';	
+		for ( place in this.data.d ) {
+			text += '<li class="arrow">';
+			text += '<a href="#venue" rel="' + place + '">';
+			text += '<span>'+place+'</span>';
 			text += '</a>';
 			text += '</li>';
 		}	
@@ -70,12 +82,11 @@ p.makeBody = function() {
 	}
 	
 	if ( this.type === 'day' ) {
-		text +=  '<ul>';	
-		for (i=0; i<meals.length; i++) {
-			var meal = meals[i];
+		text +=  '<ul class="edgetoedge">';	
+		for ( meal in this.data.d[this.venue][this.day] ) {
 			text += '<li>';
-			text += '<a href="#meal" rel="venue_' + this.venue + '-day_'+ this.day + '-meal_' + meal + '">';
-			text += meal;
+			text += '<a href="#meal" rel="' + meal + '">';
+			text += meal_names[meal];
 			text += '</a>';
 			text += '</li>';
 		}	
