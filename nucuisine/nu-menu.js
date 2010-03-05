@@ -37,6 +37,9 @@ p.makeHead = function() {
 	if ( this.type === 'day' ) {
 		title = this.day;
 	}
+	if ( this.type === 'meal' ) {
+		title = meal_names[this.meal];
+	}
 	
 	if ( this.type !== 'places' ) {
 		back = '<a href="#" class="button back">Back</a>';
@@ -84,7 +87,7 @@ p.makeBody = function() {
 	if ( this.type === 'day' ) {
 		text +=  '<ul class="edgetoedge">';	
 		for ( meal in this.data.d[this.venue][this.day] ) {
-			text += '<li>';
+			text += '<li class="arrow">';
 			text += '<a href="#meal" rel="' + meal + '">';
 			text += meal_names[meal];
 			text += '</a>';
@@ -93,7 +96,22 @@ p.makeBody = function() {
 		text += '</ul>';
 	}
 	
-	
+	if (this.type==='meal') {
+		text = '';
+		for ( station in this.data.d[this.venue][this.day][this.meal] ) {
+			text += '<h2>' + station + '</h2>';
+			var items = this.data.d[this.venue][this.day][this.meal][station];
+			text += '<ul class="edgetoedge">';
+			for ( var i = 0, l = items.length; i < l; i++ ) {
+				text += '<li class="arrow">';
+				text += '<a href="#nutrid" rel="' + items[i].n + '">';
+				text += items[i].i;
+				text += '</a>';
+				text += '</li>';
+			}
+			text += '</ul>';
+		}
+	}
 	return text;
 	
 };

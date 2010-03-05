@@ -2,7 +2,7 @@ $.jQTouch({
     icon: 'kilo.png',
     statusbar: 'black-translucent',
 	useAnimations: true,
-	flipSelector: '.meal li a'
+	flipSelector: '#meal li a'
 });
 
 $(document).ready( function() {
@@ -30,8 +30,23 @@ $(document).ready( function() {
 			numenu.type = 'day';
 			numenu.day = n.rel;
 			
-		
 			$('#day').html( numenu.makeAll() );
+		}
+		
+		if (n.hash==='#meal') {
+			numenu.type = 'meal';
+			numenu.meal = n.rel;
+			
+			$('#meal').html( numenu.makeAll() );
+		}
+		
+		if (n.hash==='#nutrid') {
+			//numenu.type = 'nutrid';
+			
+			console.log( n.rel );
+			if ( aData[n.rel] ) {
+				nf( n.rel );
+			}
 		}
 		
 	});
