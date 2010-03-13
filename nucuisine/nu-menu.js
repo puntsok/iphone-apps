@@ -80,6 +80,20 @@ p.makeBody = function() {
 		var nutrilink = this.nutrilink;
 		if ( aData[nutrilink] ) {
 			text = nf( nutrilink );
+		} else {
+			var instance = this;
+			console.log('loading ajax');
+			$.ajax({
+				url: 'menus/' + this.venue + this.data.w + '.html',
+				async: false,
+				success: function( fullhtml) {
+					var nutriscript = fullhtml.match( /aData=new Object\(\);([\s\S]*?)<\/script>/ )[1];
+					eval( nutriscript );  
+					if ( aData[ instance.nutrilink ] ) {
+						text = nf( instance.nutrilink  );
+					}
+				}    
+			});
 		}
 	}
 	

@@ -1,9 +1,20 @@
+var isTouch = false;
+
+if ( (typeof window.Touch)==='object' ) {
+	isTouch = true;
+}
+
 $.jQTouch({
     icon: 'kilo.png',
     statusbar: 'black-translucent',
-	useAnimations: true,
+	useAnimations: true, 
+	slideSelector: 'li a',
 	flipSelector: '#meal li a',
-	useFastTouch: false
+	useFastTouch: isTouch,
+	initializeTouch: 'a',
+	preloadImages: [
+		'libs/jqtouch/themes/apple/img/backButtonPurple.png'
+	]
 });
 
 $(document).ready( function() {
@@ -11,11 +22,13 @@ $(document).ready( function() {
 	var numenu = new Numenu({
 		data: eatins,
 		type: 'places'
-	});
+	});    
+	console.log( numenu.data );
 
 	$('#places').html( numenu.makeAll() );
 	
-	function getGuts(n) {
+	function getGuts(n) {   
+		console.log('adding junk');
 		
 		if (!n) {alert('probl'); return;}
 		// console.log( n );
@@ -42,22 +55,27 @@ $(document).ready( function() {
 	
 	    	
 	
-	$( 'body' ).bind( 'pageAnimationEnd', function(e,info) {
+	$( 'body' ).bind( 'pageAnimationStart', function(e,info) {
 		// console.log('pageanim',e);
 		// var target = $(e.target).data('activator'); 
 		                         
-		console.log(info.direction);
-		if (info.direction==='in') {
-			console.log('got guts fomr in');
+		//console.log(e, info.direction, numenu.activator);
+		if ((info.direction ==='in') && !($(numenu.activator).hasClass( 'back' )) ) {
+			//console.log('got guts fomr in');
 			getGuts( numenu.activator ); 
 		}	
 	});
 	
-	$('body > div').delegate('a', 'click', function(e) {
+	var eventKind = isTouch ? 'tap' : 'click';
+	
+	$('body > div').delegate('a', eventKind, function(e) {  
+		//alert('tapped');
 		// console.log( 'delegated', e, this );
 		// $('body').data( 'activator', this ); 
 		numenu.activator = this; 
-	});
+	});  
+	
+	
 	
 });
 

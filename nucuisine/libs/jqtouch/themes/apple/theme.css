@@ -72,6 +72,8 @@ body.landscape .toolbar > h1 {
     white-space: nowrap;
     background: none;
     -webkit-border-image: url(img/toolButton.png) 0 5 0 5;
+    -moz-border-image: url(img/toolButton.png) 0 5 0 5;     /*chris*/
+
 }
 
 .button.active, .back.active, .cancel.active, .add.active {
@@ -91,6 +93,10 @@ body.landscape .toolbar > h1 {
     border-width: 0 8px 0 14px;
     -webkit-border-image: url(img/backButton.png) 0 8 0 14;
 }
+.back.active, .back:active {                                        /*chris*/
+	-webkit-border-image: url(img/backButtonPurple.png) 0 8 0 14;
+}
+
 
 .leftButton, .cancel {
     left: 6px;
