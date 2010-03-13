@@ -41,12 +41,16 @@ $(document).ready( function() {
 		}
 		
 		if (n.hash==='#nutrid') {
-			//numenu.type = 'nutrid';
+			numenu.type = 'nutrition';
+			numenu.item = n.innerHTML;
+			numenu.nutrilink = n.rel;   
 			
-			console.log( n.rel );
-			if ( aData[n.rel] ) {
-				nf( n.rel );
-			}
+			$('#nutrid').html( numenu.makeAll() ); 
+			
+			// console.log( n.rel );
+			// if ( aData[n.rel] ) {
+			// 	nf( n.rel );
+			// }
 		}
 		
 	});
@@ -95,7 +99,8 @@ function nf(idx) {
 			re = new RegExp( '~' + i + '~');
 			subbing_template = subbing_template.replace( re, sub[i] );
 		}
-		$( '#nutrition' ).replaceWith( subbing_template );
+		// $( '#nutrition' ).replaceWith( subbing_template ); 
+		return subbing_template;
 }
 
 

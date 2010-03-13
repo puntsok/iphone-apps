@@ -34,8 +34,6 @@ h2 {
 	margin: 0;
 	padding: 5px 0;
 	border: 1px solid black;
-	border-top-left-radius: 8px;
-	border-top-right-radius: 8px;
 }
 .logo {
 	width: 100%;
@@ -45,6 +43,10 @@ h2 {
 .logo img {
 	margin: auto;
 	display: none;
+}
+
+ul {
+	-webkit-border-radius: 0px;
 }
 
 ul.edgetoedge {

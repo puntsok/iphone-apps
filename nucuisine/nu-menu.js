@@ -19,6 +19,8 @@ Numenu = function( config ) {
 	this.meal  = config.meal;
 	this.day   = config.day;
 	this.data  = config.data;
+	this.item  = config.item;
+	this.nutrilink = config.nutrilink;
 };
 
 var p = Numenu.prototype;
@@ -32,7 +34,7 @@ p.makeHead = function() {
 		title = this.venue;
 	}
 	if  ( this.type === 'nutrition' ) {
-		title = 'nutritional info';
+		title = this.item;
 	}
 	if ( this.type === 'day' ) {
 		title = this.day;
@@ -70,6 +72,14 @@ p.makeBody = function() {
 			}
 		}	
 		text += '</ul>';
+	}  
+	
+	if ( this.type === 'nutrition' ) {
+		text = "<p>No Nutritional Information</p>";
+		var nutrilink = this.nutrilink;
+		if ( aData[nutrilink] ) {
+			text = nf( nutrilink );
+		}
 	}
 	
 	if ( this.type === 'places' ) {
