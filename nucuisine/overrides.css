@@ -10,7 +10,7 @@ h1 {
 	margin: 0;
 }*/
 html {
-	background: url("img/pinstripes.png") repeat scroll 0 0 #C5CCD3;
+	background: url("libs/jqtouch/themes/apple/img/pinstripes.png") repeat scroll 0 0 #C5CCD3;
 }
 
 .toolbar {
@@ -37,7 +37,7 @@ h2 {
 }
 .logo {
 	width: 100%;
-	background: url("img/pinstripes.png") repeat scroll 0 0 #C5CCD3;
+	background: url("libs/jqtouch/themes/apple/img/pinstripes.png") repeat scroll 0 0 #C5CCD3;
 }
 
 .logo img {

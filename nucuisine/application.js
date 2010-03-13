@@ -17,7 +17,7 @@ $(document).ready( function() {
 	
 	function getGuts(n) {
 		
-		if (!n) return;
+		if (!n) {alert('probl'); return;}
 		console.log( n );
 		console.log( n.rel, n.hash );
 		if (n.hash==='#venue') {
@@ -42,15 +42,19 @@ $(document).ready( function() {
 	
 	console.log( numenu );
 	
-	$( 'body > div' ).bind( 'pageAnimationEnd', function(e,info) {
-		console.log(e);
-		var target = $(e.target).data('activator');
-		getGuts(target);	
+	$( 'body' ).bind( 'pageAnimationEnd', function(e,info) {
+		console.log('pageanim',e);
+		// var target = $(e.target).data('activator'); 
+		
+		//getGuts(target); 
+		getGuts( numenu.activator );
+		return false;   
 	});
 	
-	$('body > div').delegate('a', 'click', function() {
-		console.log( 'delegated ');
-		$('body > div.current').data( 'activator', this );
+	$('body > div').delegate('a', 'click', function(e) {
+		console.log( 'delegated', e, this );
+		// $('body').data( 'activator', this ); 
+		numenu.activator = this; 
 	});
 	
 });

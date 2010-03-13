@@ -19,6 +19,7 @@ Numenu = function( config ) {
 	this.meal  = config.meal;
 	this.day   = config.day;
 	this.data  = config.data;
+	this.activator = config.activator; // reference to node that was clicked before animation
 	this.item  = config.item;
 	this.nutrilink = config.nutrilink;
 };
