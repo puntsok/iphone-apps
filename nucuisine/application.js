@@ -7,7 +7,6 @@ $.jQTouch({
 
 $(document).ready( function() {
 
-
 	var numenu = new Numenu({
 		data: eatins,
 		type: 'places'
@@ -15,79 +14,45 @@ $(document).ready( function() {
 
 	$('#places').html( numenu.makeAll() );
 	
-	$('body').delegate( 'a', 'click', function(e) {
-		var n = e.currentTarget;
+	function getGuts(n) {
+		
+		if (!n) return;
 		console.log( n );
 		console.log( n.rel, n.hash );
-		
 		if (n.hash==='#venue') {
 			numenu.type = 'venue';
 			numenu.venue = n.rel;
-			$('#venue').html( numenu.makeAll() );
 		}
-		
 		if (n.hash==='#day') {
 			numenu.type = 'day';
 			numenu.day = n.rel;
-			
-			$('#day').html( numenu.makeAll() );
 		}
-		
 		if (n.hash==='#meal') {
 			numenu.type = 'meal';
 			numenu.meal = n.rel;
-			
-			$('#meal').html( numenu.makeAll() );
 		}
-		
 		if (n.hash==='#nutrid') {
 			numenu.type = 'nutrition';
 			numenu.item = n.innerHTML;
 			numenu.nutrilink = n.rel;   
-			
-			$('#nutrid').html( numenu.makeAll() ); 
-			
-			// console.log( n.rel );
-			// if ( aData[n.rel] ) {
-			// 	nf( n.rel );
-			// }
-		}
-		
-	});
+		}     
+		$( n.hash ).html(numenu.makeAll());      
+	}
 	
 	console.log( numenu );
 	
-	// $('#nutrid').bind('pageAnimationStart', function(e, info){
-	// 	var activator = $(e.target).data( 'activator');
-	// 	console.log( 'pageAnimationStart', activator.name, e, info );
-	// 	if ( info.direction === 'in' ) {
-	// 		console.log( 'updating nutrid');
-	// 		nf( activator.name );
-	// 	}
-	// });
-	// 
-	// $('#himan_monday_breakfast').delegate('li a', 'click', function() {
-	// 	console.log( 'delegated ');
-	// 	$('#nutrid').data( 'activator', this );
-	// });
+	$( 'body > div' ).bind( 'pageAnimationStart', function(e,info) {
+		console.log(e);
+		var target = $(e.target).data('activator');
+		getGuts(target);	
+	});
+	
+	$('body > div').delegate('a', 'click', function() {
+		console.log( 'delegated ');
+		$('body > div.current').data( 'activator', this );
+	});
 	
 });
-
-function ws(value) {
-	return;
-}
-function pcls(value) {
-	return;
-}
-
-// function depending on the hook I put in jQTouch
-// function beforeGoTo( node ) {
-// 	if ( node.hash === '#nutrid' ) {
-// 		nf( node.name, node );
-// 	}
-// }
-
-
 
 var subbing_template, sub, i, re;
 function nf(idx) {

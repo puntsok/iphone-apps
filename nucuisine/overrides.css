@@ -48,6 +48,16 @@ h2 {
 ul {
 	-webkit-border-radius: 0px;
 }
+li:first-child, li:first-child a {
+    border-top: 0;
+    -webkit-border-top-left-radius: 0px;
+    -webkit-border-top-right-radius: 0px;
+}
+
+li:last-child, li:last-child a {
+    -webkit-border-bottom-left-radius: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+}
 
 ul.edgetoedge {
 	font-size: 19px;
