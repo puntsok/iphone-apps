@@ -2,7 +2,8 @@ $.jQTouch({
     icon: 'kilo.png',
     statusbar: 'black-translucent',
 	useAnimations: true,
-	flipSelector: '#meal li a'
+	flipSelector: '#meal li a',
+	useFastTouch: false
 });
 
 $(document).ready( function() {
