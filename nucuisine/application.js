@@ -41,7 +41,7 @@ $(document).ready( function() {
 	
 	console.log( numenu );
 	
-	$( 'body > div' ).bind( 'pageAnimationStart', function(e,info) {
+	$( 'body > div' ).bind( 'pageAnimationEnd', function(e,info) {
 		console.log(e);
 		var target = $(e.target).data('activator');
 		getGuts(target);	
