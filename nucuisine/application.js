@@ -1,7 +1,7 @@
 $.jQTouch({
     icon: 'kilo.png',
     statusbar: 'black-translucent',
-	useAnimations: false,
+	useAnimations: true,
 	flipSelector: '#meal li a',
 	useFastTouch: false
 });
@@ -18,8 +18,8 @@ $(document).ready( function() {
 	function getGuts(n) {
 		
 		if (!n) {alert('probl'); return;}
-		console.log( n );
-		console.log( n.rel, n.hash );
+		// console.log( n );
+		// console.log( n.rel, n.hash );
 		if (n.hash==='#venue') {
 			numenu.type = 'venue';
 			numenu.venue = n.rel;
@@ -40,19 +40,21 @@ $(document).ready( function() {
 		$( n.hash ).html(numenu.makeAll());      
 	}
 	
-	console.log( numenu );
+	    	
 	
 	$( 'body' ).bind( 'pageAnimationEnd', function(e,info) {
-		console.log('pageanim',e);
+		// console.log('pageanim',e);
 		// var target = $(e.target).data('activator'); 
-		
-		//getGuts(target); 
-		getGuts( numenu.activator );
-		return false;   
+		                         
+		console.log(info.direction);
+		if (info.direction==='in') {
+			console.log('got guts fomr in');
+			getGuts( numenu.activator ); 
+		}	
 	});
 	
 	$('body > div').delegate('a', 'click', function(e) {
-		console.log( 'delegated', e, this );
+		// console.log( 'delegated', e, this );
 		// $('body').data( 'activator', this ); 
 		numenu.activator = this; 
 	});
