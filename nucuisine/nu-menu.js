@@ -1,7 +1,9 @@
 (function(){
 // ==============================
 
-var daysOfWeek = ['monday','tuesday','wednesday','thursday','friday','saturday','sun_day'],
+var
+	// variables
+	daysOfWeek = ['monday','tuesday','wednesday','thursday','friday','saturday','sun_day'],
 	places     = ['hinman','allison','foster_east','foster_west','elder','sargent','willard','willies','tech'],
 	meals      = ['breakfast','lunch','dinner'],
 	meal_names = {
@@ -10,17 +12,23 @@ var daysOfWeek = ['monday','tuesday','wednesday','thursday','friday','saturday',
 		din: 'dinner',
 		lat: 'late night'
 	},
+	
+	// constants
+	CANNOT_LOAD_MESSAGE = 'Could not fetch data',
+	LOADING_CLASSNAME   = 'loading',
+	
+	// local variables
 	i;
 
 Numenu = function( config ) {
 	// places, venue, day, meal, nutrition, hours
-	this.type  = config.type; // places, venue, day, meal
-	this.venue = config.venue;
-	this.meal  = config.meal;
-	this.day   = config.day;
-	this.data  = config.data;
+	this.type      = config.type; // places, venue, day, meal
+	this.venue     = config.venue;
+	this.meal      = config.meal;
+	this.day       = config.day;
+	this.data      = config.data;
 	this.activator = config.activator; // reference to node that was clicked before animation
-	this.item  = config.item;
+	this.item      = config.item;
 	this.nutrilink = config.nutrilink;
 };
 
@@ -82,17 +90,22 @@ p.makeBody = function() {
 			text = nf( nutrilink );
 		} else {
 			var instance = this;
-			console.log('loading ajax');
+			$(instance.activator).addClass( LOADING_CLASSNAME );
+			// console.log('loading ajax');
 			$.ajax({
 				url: 'menus/' + this.venue + this.data.w + '.html',
 				async: false,
-				success: function( fullhtml) {
+				success: function(fullhtml) {
 					var nutriscript = fullhtml.match( /aData=new Object\(\);([\s\S]*?)<\/script>/ )[1];
 					eval( nutriscript );  
 					if ( aData[ instance.nutrilink ] ) {
 						text = nf( instance.nutrilink  );
 					}
-				}    
+				},
+				error: function(r,s,e) {
+					// this should go somewhere else higher, in much above too!
+					alert( CANNOT_LOAD_MESSAGE );
+				}   
 			});
 		}
 	}

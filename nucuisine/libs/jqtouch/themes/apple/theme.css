@@ -201,6 +201,10 @@ ul li a.active {
     background: #194fdb url(img/selection.png) 0 0 repeat-x;
     color: #fff;
 }
+ul li a.active.loading {
+    background-color: green; 
+	background-image: none;
+}
 
 ul li a.button {
     background-color: #194fdb;
