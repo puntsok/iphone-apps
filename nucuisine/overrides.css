@@ -63,10 +63,14 @@ ul.edgetoedge {
 	font-size: 19px;
 }
 
-ul.edgetoedge li.today a {
+/*ul.edgetoedge li.current-day a {
 	background-image:url("img/today.gif");
 	background-position: 75% 50%;
 	background-repeat:no-repeat;
+} */   
+
+ul.edgetoedge li.current {
+	background-color: lightGreen;
 }
 ul.edgetoedge li img {
 	height: 15px;

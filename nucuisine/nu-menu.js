@@ -1,16 +1,58 @@
 Eval = function(t) {
 	eval(t);
 };
+
+Dater = (function(){
+	// CONSTANTS
+	var DAYS_OF_WEEK = ['sunday','monday','tuesday','wednesday','thursday','friday','saturday'],
+	// local variables
+	i,len,
+	// class local aliases
+	$self, $self_date,
+	
+	// Class definition
+	Class = function( dateObject ){
+		// constructor:
+			this.date = dateObject;
+		},    
+		
+		// public methods:
+		methods = {
+			// public methods:
+			getTextDay: function(){
+				return DAYS_OF_WEEK[ this.date.getDay() ];
+			},
+			getTextTime: function(){
+				$self_date = this.date;
+				return $self_date.getHours() + ':' + $self_date.getMinutes();
+			},
+			getMinsSinceMidnight: function(){
+				return this.date.getHours()*60 + this.date.getMinutes();
+			}
+			// private methods:
+		}; 
+		
+	// static attributes, methods
+	Class.sayHi = function(){
+		alert( 'hiiii' );
+	};   
+	// finish up
+	Class.prototype = methods;
+	return Class;
+})();
+
+
 Numenu = (function(){
 	
 // ==============================
 
 var 
 	// variables
-	daysOfWeek = ['monday','tuesday','wednesday','thursday','friday','saturday','sun_day'],
-	places     = ['hinman','allison','foster_east','foster_west','elder','sargent','willard','willies','tech'],
-	meals      = ['breakfast','lunch','dinner'],
-	meal_names = {
+	daysOfWeek   = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'],
+	daysOfWeekJS = ['sunday','monday','tuesday','wednesday','thursday','friday','saturday'],
+	places       = ['hinman','allison','foster_east','foster_west','elder','sargent','willard','willies','tech'],
+	meals        = ['breakfast','lunch','dinner'],
+	meal_names   = {
 		brk: 'breakfast',
 		lun: 'lunch',
 		din: 'dinner',
@@ -103,7 +145,7 @@ var
 		'</div>',
 	
 	// local variables
-	p, NumenuClass, back, more, text, arrayOfReplacements, instance, items, i, l;
+	p, NumenuClass, back, more, more_class, text, arrayOfReplacements, instance, items, i, l, dater;
 
 NumenuClass = function( config ) {
 	// places, venue, day, meal, nutrition, hours
@@ -153,6 +195,9 @@ p.makeAll = function() {
 			'</div>' + more;
 	}
 	function makeBody() {
+		
+		dater = new Dater( new Date() );
+		var mins = dater.getMinsSinceMidnight();
 
 		function makeNutritionTemplate( instance ) {
 			text = NUTRITION_TEMPLATE;
@@ -166,8 +211,10 @@ p.makeAll = function() {
 		text = '<ul class="edgetoedge">';
 		if ( instance.type === 'venue' ) {
 			for ( day in instance.data.d[instance.venue] ) {
+				more_class = '';
+				if (day === dater.getTextDay() ) more_class = ' current';
 				if (day !== 'hours' ) {
-					text += '<li class="arrow">' +
+					text += '<li class="arrow' + more_class + '">' +
 					        '<a href="#day" rel="' + day + '">' +
 							day +
 					        '</a>' +
@@ -189,8 +236,22 @@ p.makeAll = function() {
 		}
 
 		if ( instance.type === 'day' ) {
-			for ( meal in instance.data.d[instance.venue][instance.day] ) {
-				text += '<li class="arrow">' +
+			for ( meal in instance.data.d[instance.venue][instance.day] ) { 
+				more_class = '';   
+				if ( instance.day === dater.getTextDay() ) {
+					switch ( meal ) { 
+						case 'brk': 
+						break;
+						case 'lun':
+						break;
+						case 'din': 
+							if ( mins >= 1380 && mins < 1440 ) {
+								more_class = ' current';
+							}
+						break;
+					}  
+				}
+				text += '<li class="arrow' + more_class + '">' +
 				        '<a href="#meal" rel="' + meal + '">' +
 				        meal_names[meal] +
 				        '</a>' +
@@ -244,6 +305,7 @@ p.makeAll = function() {
 
 	}
 	
+
 	return makeHead() + makeBody();
 };
 

@@ -31,7 +31,7 @@ $(document).ready( function() {
 		type: 'places',
 		nutridata: aData
 	});
-	// console.log( numenu.data );
+	console.log( numenu.data );
 
 	$('#places').html( numenu.makeAll() );
 	
